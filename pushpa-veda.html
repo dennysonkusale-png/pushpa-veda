@@ -446,6 +446,7 @@ footer.site{border-top:1px solid var(--border);margin-top:60px;padding:52px 0 30
           <li><a data-nav="featured">Top 20 — In Depth</a></li>
           <li><a data-nav="explore">Botanical Glossary</a></li>
           <li><a data-nav="ayurveda">Ayurveda Library</a></li>
+          <li><a data-nav="non-ayurvedic">No Ayurvedic Link</a></li>
           <li><a data-nav="culture">Culture & Heritage</a></li>
           <li><a data-nav="gardening">Gardening Guides</a></li>
           <li><a data-nav="science">Science & Research</a></li>
@@ -5359,6 +5360,37 @@ DEEP["chrysanthemum-morifolium"] = {
   refs:["Kew Plants of the World Online","PubMed-indexed literature","Plant-biology literature (photoperiodism)"]
 };
 
+
+/* ============================================================
+   PUSHPA VEDA — "No Ayurvedic Link" section
+   Species with no classical Ayurvedic standing, derived directly
+   from each species' own ayurveda.classical value so the section
+   can never drift out of step with the Ayurveda tab on the page.
+   ============================================================ */
+
+/* 1. Add the browse category, grouped right after "Ayurvedic Flowers". */
+CATEGORIES.splice(
+  CATEGORIES.findIndex(c => c.id === "ayurvedic") + 1,
+  0,
+  {
+    id: "non-ayurvedic",
+    name: "No Ayurvedic Link",
+    desc: "Species with no classical Ayurvedic standing — ornamental, temperate, foreign or New-World plants, grown for beauty, scent, food or ecology rather than tradition."
+  }
+);
+
+/* 2. Keep the Ayurvedic / non-Ayurvedic tagging exactly in step with each
+      species' own Ayurveda profile. A species is one or the other, never
+      both, so this also removes any stale tag. */
+FLOWERS.forEach(f => {
+  const isAyurvedic = f.ayurveda.classical !== "not classical";   // classical or partly-classical
+  const want  = isAyurvedic ? "ayurvedic" : "non-ayurvedic";
+  const other = isAyurvedic ? "non-ayurvedic" : "ayurvedic";
+  if (f.categories.indexOf(want) === -1) f.categories.push(want);
+  const i = f.categories.indexOf(other);
+  if (i !== -1) f.categories.splice(i, 1);
+});
+
 </script>
 <script>
 /* ============================================================
@@ -5377,7 +5409,7 @@ const CAT_MAP = Object.fromEntries(CATEGORIES.map(c => [c.id, c]));
 
 /* ---------- i18n (UI chrome only; botanical names are never translated) ---------- */
 const STRINGS = {
-  en:{    home:"Home", explore:"Explore Flowers", featured:"Top 20 In Depth", ayurveda:"Ayurveda", culture:"Culture & Heritage", gardening:"Gardening",
+  en:{    home:"Home", explore:"Explore Flowers", featured:"Top 20 In Depth", ayurveda:"Ayurveda", nonayur:"Non-Ayurvedic", culture:"Culture & Heritage", gardening:"Gardening",
     science:"Science & Research", conservation:"Nature & Conservation", tools:"Interactive Tools", articles:"Articles", about:"About",
     search_ph:"Search flowers by name, colour, region, or traditional use",
     hero_h1_pre:"Explore the Wonderful", hero_h1_em:"World of Flowers",
@@ -5388,7 +5420,7 @@ const STRINGS = {
     results:"results", all:"All", clear:"Clear filters", back:"Back", compare:"Compare", quiz:"Flower Quiz",
     favourites:"My Collection", add:"Add to collection", remove:"Remove", scientific_name:"Scientific name",
     native_region:"Native region", family:"Family", save:"Save", saved:"Saved" },
-  hi:{    home:"होम", explore:"फूल खोजें", featured:"शीर्ष २० विस्तार से", ayurveda:"आयुर्वेद", culture:"संस्कृति व विरासत", gardening:"बागवानी",
+  hi:{    home:"होम", explore:"फूल खोजें", featured:"शीर्ष २० विस्तार से", ayurveda:"आयुर्वेद", nonayur:"गैर-आयुर्वेदिक", culture:"संस्कृति व विरासत", gardening:"बागवानी",
     science:"विज्ञान व शोध", conservation:"प्रकृति व संरक्षण", tools:"इंटरैक्टिव उपकरण", articles:"लेख", about:"परिचय",
     search_ph:"नाम, रंग, क्षेत्र या पारंपरिक उपयोग से फूल खोजें",
     hero_h1_pre:"फूलों की अद्भुत", hero_h1_em:"दुनिया का अन्वेषण करें",
@@ -5399,7 +5431,7 @@ const STRINGS = {
     results:"परिणाम", all:"सभी", clear:"फ़िल्टर हटाएँ", back:"वापस", compare:"तुलना", quiz:"फूल प्रश्नोत्तरी",
     favourites:"मेरा संग्रह", add:"संग्रह में जोड़ें", remove:"हटाएँ", scientific_name:"वैज्ञानिक नाम",
     native_region:"मूल क्षेत्र", family:"कुल", save:"सहेजें", saved:"सहेजा गया" },
-  mr:{    home:"मुख्यपृष्ठ", explore:"फुले शोधा", featured:"शीर्ष २० सविस्तर", ayurveda:"आयुर्वेद", culture:"संस्कृती व वारसा", gardening:"बागकाम",
+  mr:{    home:"मुख्यपृष्ठ", explore:"फुले शोधा", featured:"शीर्ष २० सविस्तर", ayurveda:"आयुर्वेद", nonayur:"आयुर्वेदेतर", culture:"संस्कृती व वारसा", gardening:"बागकाम",
     science:"विज्ञान व संशोधन", conservation:"निसर्ग व संवर्धन", tools:"परस्परसंवादी साधने", articles:"लेख", about:"आमच्याबद्दल",
     search_ph:"नाव, रंग, प्रदेश किंवा पारंपरिक वापराने फुले शोधा",
     hero_h1_pre:"फुलांच्या अद्भुत", hero_h1_em:"जगाचा शोध घ्या",
@@ -6028,6 +6060,8 @@ function viewAyurveda(){
     <div class="subhead">Species often discussed in wellness contexts but <em>not</em> classical Ayurveda</div>
     <div class="grid g-flowers">${FLOWERS.filter(f=>f.ayurveda.classical==="not classical").map(flowerCard).join("")}</div>
 
+    <div class="callout info"><b>Want the complete opposite list?</b> Every species with <b>no</b> Ayurvedic link now has its own section: <button class="sec-link" data-nav="non-ayurvedic">Flowers with No Ayurvedic Link (${FLOWERS.filter(f=>f.ayurveda.classical==="not classical").length} species) →</button></div>
+
     <div class="callout danger"><b>Medical disclaimer.</b> This section is educational. It does not provide dosages, recipes or treatment instructions and must not be used to self-treat any condition. Many traditional drugs — including several listed here — are toxic. Consult a qualified Ayurvedic or medical professional.</div>
   </section>`;
 }
@@ -6377,6 +6411,42 @@ function viewFeatured(){
 }
 
 /* ============================================================
+   NON-AYURVEDIC SECTION — flowers with no classical Ayurvedic link
+   ============================================================ */
+function nonAyurvedicList(){ return FLOWERS.filter(f => f.ayurveda.classical === "not classical"); }
+function viewNonAyurvedic(){
+  const list = nonAyurvedicList();
+  const total = FLOWERS.length;
+  const pct = Math.round(list.length / total * 100);
+  // group by broad origin so the section reads as a catalogue, not a dump
+  const newWorld = list.filter(f => /New-World|new world|Mexico|Central America|South America|Amazon|Brazil|Andes|Peru|Guatemala|West Indies|Madagascar|Tropical America/i.test(f.native));
+  const temperate = list.filter(f => /Mediterranean|Europe|Middle East|Asia Minor|South Africa|Australia|East Asia|China|Japan|Himalaya|Iran|Turkey|Balkans|steppe/i.test(f.native) && !newWorld.includes(f));
+  const rest = list.filter(f => !newWorld.includes(f) && !temperate.includes(f));
+  const group = (title, note, arr) => arr.length ? `
+    <div class="subhead">${esc(title)} <span class="muted" style="text-transform:none;letter-spacing:0">— ${arr.length} species</span></div>
+    <p class="muted" style="font-size:.9rem;max-width:75ch">${esc(note)}</p>
+    <div class="grid g-flowers">${arr.map(flowerCard).join("")}</div>` : "";
+  return `
+  <section class="section wrap">
+    <div class="breadcrumb"><button data-nav="home">Home</button> › <button data-nav="ayurveda">Ayurveda</button> › <span>No Ayurvedic Link</span></div>
+    <div class="sec-head"><div><div class="eyebrow">Outside the tradition</div>
+      <h2>Flowers with No Ayurvedic Link</h2>
+      <p>${list.length} of the ${total} species profiled here have <b>no classical Ayurvedic standing</b> (${pct}% of the collection). These are the ornamentals, the temperate bulbs, the orchids and the New-World imports — grown for beauty, scent, food or ecology rather than as traditional medicine.</p></div></div>
+
+    <div class="callout info"><b>How this section is defined.</b> Every species in the encyclopedia carries an Ayurveda tab marked <b>classical</b>, <b>partly classical</b> or <b>not classical</b>. This section collects the <b>not classical</b> group, and it is generated directly from those profiles — so it can never drift out of step with them.</div>
+
+    <div class="callout warn"><b>Two honest notes.</b> (1) "No Ayurvedic link" does <b>not</b> mean "no cultural value". Several species here — Burans, Brahma Kamal, the foxtail orchid, kanakambaram — are culturally important Indian flowers that simply have no classical medicinal standing. (2) A few carry regional <i>folk</i> uses on their pages; folk practice is not Ayurveda, and it is labelled as such there. Marigold, frangipani, sunflower, bougainvillea and periwinkle are New-World plants that reached India centuries after the classical texts, so no classical claim about them could be genuine.</div>
+
+    ${group("New-World plants — no classical claim is even possible", "Native to the Americas, these arrived in India only after the sixteenth-century exchange of crops. They are beautiful and useful, but they cannot appear in the classical corpus.", newWorld)}
+    ${group("Temperate, Mediterranean and East Asian garden flowers", "Plants of cool and temperate regions, grown in India chiefly as ornamentals and cut flowers — many only in hill gardens.", temperate)}
+    ${group("Other ornamentals, orchids and tropical shrubs", "Species of tropical and subtropical origin grown for ornament, fragrance or colour, with no classical Ayurvedic standing in the sources consulted.", rest)}
+
+    <div class="callout info"><b>Looking for the opposite list?</b> See <button class="sec-link" data-nav="ayurveda">Flowers in Ayurveda: Traditional Wisdom and Modern Understanding</button>.</div>
+    <div class="callout danger"><b>Still not medical advice.</b> Some species in this section are toxic (oleander, yellow oleander, lantana, ageratum, larkspur, periwinkle) — being outside Ayurveda does not make a plant harmless. See each profile's Safety tab.</div>
+  </section>`;
+}
+
+/* ============================================================
    RENDER
    ============================================================ */
 function render(opts){
@@ -6389,6 +6459,7 @@ function render(opts){
     case "featured": html = viewFeatured(); break;
     case "flower": html = viewDetail(r.id); break;
     case "ayurveda": html = viewAyurveda(); break;
+    case "non-ayurvedic": html = viewNonAyurvedic(); break;
     case "culture": html = viewCulture(); break;
     case "gardening": html = viewGardening(); break;
     case "science": html = viewScience(); break;
@@ -6406,7 +6477,7 @@ function render(opts){
 
 function renderChrome(){
   const r = state.route;
-  const navItems = [["home","home"],["explore","explore"],["featured","featured"],["ayurveda","ayurveda"],["culture","culture"],
+  const navItems = [["home","home"],["explore","explore"],["featured","featured"],["ayurveda","ayurveda"],["non-ayurvedic","nonayur"],["culture","culture"],
     ["gardening","gardening"],["science","science"],["conservation","conservation"],["tools","tools"],["articles","articles"],["about","about"]];
   $("#navLinks").innerHTML = navItems.map(([v,k])=>`<button data-nav="${v}" class="${r.view===v?"active":""}">${esc(t(k))}</button>`).join("");
   $("#favCount").textContent = state.favorites.length || "";
