@@ -73,6 +73,10 @@ taxonomy notes, distinguishing features, detailed botany with growth stages, an 
 Ayurvedic profile with traditional actions (karma) and formulations, deeper research and
 safety, a gardening calendar, cultural depth, and references.
 
+**Flowers with No Ayurvedic Link** — a dedicated section collecting every species with no
+classical Ayurvedic standing (82 of 139), grouped by origin and generated from each species'
+own Ayurveda profile so it can never drift out of step (see §7).
+
 **Interactive tools** — advanced multi-facet search; compare two or three species
 side by side (19 attributes); a quiz with easy/medium/hard levels; a personal
 collection with private notes and CSV export; and an **Image Manager** that lets you
@@ -337,7 +341,45 @@ Adding an in-depth profile for another species is straightforward: add an entry 
 
 ---
 
-## 7. Path to the full-stack deployment
+## 7. The "No Ayurvedic Link" section
+
+The collection is now split explicitly into its two halves. Every species carries an Ayurveda
+tab marked **classical**, **partly classical** or **not classical**, and a dedicated section
+collects the **not classical** group — **82 of the 139 species (59%)**.
+
+**How it is built — and why it cannot go stale.** The section is generated at render time from
+each species' own `ayurveda.classical` value, and the browse tags are derived the same way. A
+species is therefore always in exactly one group:
+
+- **Ayurvedic** (classical + partly classical): **57 species**
+- **No Ayurvedic link** (not classical): **82 species**
+- 57 + 82 = 139, with no overlaps and no gaps.
+
+Change a species' Ayurveda status and it moves itself. This edit also fixed eleven species
+whose "Ayurvedic" tag had been missing, so the two groups are now perfectly complementary.
+
+**Where it is reachable:** the navigation ("Non-Ayurvedic"), the home-page category grid, the
+footer, and a cross-link at the foot of the Ayurveda page.
+
+**Grouped, not dumped.** The 82 species are presented in three groups rather than one long list:
+
+- **New-World plants** (32) — native to the Americas, so no classical claim about them is even
+  possible; they reached India only after the sixteenth-century exchange of crops.
+- **Temperate, Mediterranean and East Asian garden flowers** — grown in India chiefly as
+  ornamentals and cut flowers, many only in hill gardens.
+- **Other ornamentals, orchids and tropical shrubs.**
+
+**Two honest caveats are stated on the page itself.** First, "no Ayurvedic link" does not mean
+"no cultural value": Burans, Brahma Kamal, the foxtail orchid and kanakambaram are culturally
+important Indian flowers that simply have no classical medicinal standing. Second, a few species
+in the section carry regional *folk* uses on their pages — folk practice is not Ayurveda, and it
+is labelled as such there. The page also repeats that being outside Ayurveda does not make a
+plant safe: several species in it (oleander, yellow oleander, lantana, ageratum, larkspur,
+periwinkle) are toxic.
+
+---
+
+## 8. Path to the full-stack deployment
 
 The static edition is a faithful, runnable slice of the production plan. The brief's
 preferred stack maps onto it as follows:
@@ -373,7 +415,7 @@ fields against their cited sources.
 
 ---
 
-## 8. Safety, disclaimers and scope
+## 9. Safety, disclaimers and scope
 
 - **Educational use only.** Pushpa Veda is not medical advice, diagnosis or treatment,
   and is not a substitute for professional guidance.
@@ -388,7 +430,7 @@ fields against their cited sources.
 
 ---
 
-## 9. Accessibility & performance
+## 10. Accessibility & performance
 
 - Semantic HTML, landmark regions, skip link, labelled controls, keyboard-operable
   cards and menus, `role`/`aria-label` on interactive elements.
