@@ -384,6 +384,14 @@ footer.site{border-top:1px solid var(--border);margin-top:60px;padding:52px 0 30
 .deep-card .thumb{aspect-ratio:16/9}
 .deep-card .rank-badge{margin-bottom:10px}
 
+/* ---------- Photo-source list (Image Manager) ---------- */
+.src-list{margin:14px 0;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);padding:0 18px}
+.src-list[open]{padding:2px 18px 18px}
+.src-list summary{cursor:pointer;font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);padding:14px 0;list-style:none}
+.src-list summary::-webkit-details-marker{display:none}
+.src-list summary::before{content:"\25B8  ";color:var(--accent-2)}
+.src-list[open] summary::before{content:"\25BE  "}
+
 </style>
 </head>
 <body>
@@ -6554,7 +6562,28 @@ function renderImageManager(){
   }).join("");
   return `<div class="sec-head"><div><div class="eyebrow">Media</div><h2>Image Manager</h2>
       <p>Attach a real photograph to any species — by URL or by uploading a file. Leave a species empty and it keeps its vector illustration. ${setCount} of ${FLOWERS.length} species currently have a photograph set.</p></div></div>
-    <div class="callout info"><b>Licensing — please read.</b> Use only images you may use for <b>both personal and commercial</b> purposes: CC0 / public-domain works, your own photographs, or a stock service whose licence allows commercial use (for example Pexels, Pixabay or Unsplash — check each image's own terms). Always fill in the <b>credit</b> and <b>licence</b> fields; they appear with the photo. Do not use images of unknown origin.</div>
+    <div class="callout info"><b>Licensing — please read.</b> Use only images you may use for <b>both personal and commercial</b> purposes, and always fill in the <b>credit</b> and <b>licence</b> fields. A photo licence covers the photographer's copyright only — it does not cover model releases, or trademarks and logos inside the frame.</div>
+    <details class="src-list" open>
+      <summary>Where to find free flower photos (checked for commercial use)</summary>
+      <div class="subhead">Photographs — commercial use, no attribution required</div>
+      <ul class="ref-list">
+        <li><b>Unsplash</b> (unsplash.com/license) — commercial use, no attribution required. Cannot sell unaltered photos or compile them into a competing service. (Unsplash+ images are separate and paid.)</li>
+        <li><b>Pexels</b> (pexels.com/license) — commercial use, no attribution required. No unaltered resale; no implied endorsement.</li>
+        <li><b>Pixabay</b> (pixabay.com) — Pixabay Content License: commercial use, no attribution required. Uploads before 2019 were released as CC0.</li>
+        <li><b>StockSnap.io</b> (CC0), <b>Burst by Shopify</b>, <b>Reshot</b>, <b>freeforcommercialuse.net</b> (CC0) — free for commercial use.</li>
+      </ul>
+      <div class="subhead">Species-identified photos — check the licence (attribution may be required)</div>
+      <ul class="ref-list">
+        <li><b>Wikimedia Commons</b> (commons.wikimedia.org) — free licences only. CC0 / public domain = no conditions; <b>CC BY and CC BY-SA require credit</b> (and ShareAlike means derivatives must carry the same licence). Best source when you need a photo labelled with a scientific name.</li>
+        <li><b>Flickr</b> (flickr.com) — filter the search by licence: CC0, Public Domain Mark, CC BY or CC BY-SA.</li>
+        <li><b>Openverse</b> (openverse.org) — searches openly-licensed images across many sources; filter to CC0 / public domain for no conditions.</li>
+      </ul>
+      <div class="subhead">Historic botanical illustrations — public domain</div>
+      <ul class="ref-list">
+        <li><b>Biodiversity Heritage Library</b> (biodiversitylibrary.org, plus 300,000+ plates on Flickr) — public-domain works are free to reuse <b>including commercially</b>; in-copyright items are CC BY-NC-SA, which is <b>not</b> for commercial use. Verify each item's copyright status.</li>
+      </ul>
+      <div class="callout warn" style="margin-top:14px"><b>Three cautions.</b> (1) Never resell unaltered photos, and never rebuild a competing stock library from them. (2) Licences can change for new downloads — keep a dated note of the licence you downloaded under. (3) Prefer CC0 / public domain for zero conditions; prefer Wikimedia Commons when you need the photo identified to species.</div>
+    </details>
     <div class="filters">
       <input type="search" id="imgq" placeholder="Find a species…" value="${esc(state.imgQuery||"")}" aria-label="Find a species">
       <button class="btn btn--ghost btn--sm" id="imgExport">Export image map (JSON)</button>
