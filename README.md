@@ -242,6 +242,53 @@ detail page and as a tooltip on cards. Never use images of unknown origin.
 The production data model already carries a dedicated `images` table (asset, role,
 alt text, credit, licence), so this same workflow scales to the full-stack deployment.
 
+### Where to find free flower photos
+
+Checked against the licence pages themselves. **Commercial use, no attribution required:**
+
+- **Unsplash** — unsplash.com/license. Irrevocable, worldwide licence, commercial use allowed,
+  no credit needed. You may not sell unaltered photos or compile them into a competing
+  service. (Unsplash+ images are a separate, paid catalogue.)
+- **Pexels** — pexels.com/license. Free commercial use, no attribution. No unaltered resale;
+  no implying endorsement by people or brands shown.
+- **Pixabay** — pixabay.com. The Pixabay Content License allows commercial use with no
+  attribution. Uploads made before January 2019 were released as **CC0**, which is even
+  more permissive.
+- **Also free for commercial use:** StockSnap.io (CC0), Burst by Shopify, Reshot,
+  freeforcommercialuse.net (CC0).
+
+**Species-identified photos — check the licence, credit may be required:**
+
+- **Wikimedia Commons** — commons.wikimedia.org. Accepts only free licences. **CC0 and public
+  domain** carry no conditions; **CC BY and CC BY-SA require credit**, and ShareAlike means
+  any derivative must carry the same licence. This is the best source when you need a photo
+  labelled with a scientific name — exactly what a flower encyclopedia needs.
+- **Flickr** — flickr.com. Use the licence filter in search: CC0, Public Domain Mark,
+  CC BY, CC BY-SA.
+- **Openverse** — openverse.org. Searches openly-licensed images across many sources;
+  filter to CC0 / public domain for zero conditions.
+
+**Historic botanical illustrations — public domain:**
+
+- **Biodiversity Heritage Library** — biodiversitylibrary.org, with 300,000+ plates also on
+  Flickr. Public-domain works are free to reuse **including commercially**; in-copyright
+  items sit under CC BY-NC-SA, which is **not** usable commercially. Verify each item's
+  copyright status.
+
+**Three cautions worth remembering**
+
+1. A photo licence covers the **photographer's copyright only**. It does not cover model
+   releases, or trademarks and logos visible inside the frame.
+2. Never resell unaltered photos, and never rebuild a competing stock library from them.
+3. Licences can change for new downloads — Pixabay moved from CC0 to its own licence in 2019.
+   **Keep a dated note of the licence you downloaded under** with the asset. The site's
+   Image Manager already stores credit and licence per photo; use those fields.
+
+**Recommendation for this project:** use **Wikimedia Commons** for species-level photographs
+(so the photo genuinely shows the species named) and the **Biodiversity Heritage Library** for
+historic botanical plates; fall back to Unsplash/Pexels/Pixabay for general imagery. Record
+credit and licence for every image either way.
+
 ---
 
 ## 6. The Top 20 In-Depth profiles
