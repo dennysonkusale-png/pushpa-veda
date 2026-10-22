@@ -392,6 +392,29 @@ footer.site{border-top:1px solid var(--border);margin-top:60px;padding:52px 0 30
 .src-list summary::before{content:"\25B8  ";color:var(--accent-2)}
 .src-list[open] summary::before{content:"\25BE  "}
 
+/* ---------- Wildflower field list (deliberately plain) ---------- */
+.field-table{width:100%;border-collapse:collapse;font-size:.88rem;background:var(--surface)}
+.field-table th,.field-table td{padding:9px 12px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+.field-table th{background:var(--surface-2);font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-dim)}
+.field-table tbody tr:nth-child(even){background:color-mix(in srgb,var(--surface-2) 45%,transparent)}
+.field-table tbody tr:hover{background:var(--surface-2)}
+.field-table .sci-cell{font-style:italic;color:var(--text-dim);white-space:nowrap}
+.sw-cell{white-space:nowrap}
+.swatch{display:inline-block;width:14px;height:14px;border-radius:4px;border:1px solid var(--border-strong);margin-right:3px;vertical-align:middle}
+.linklike{background:none;border:0;padding:0;font:inherit;color:var(--accent);cursor:pointer;text-align:left;font-weight:600}
+.linklike:hover{text-decoration:underline}
+.chip-pending{background:color-mix(in srgb,var(--gold) 18%,var(--surface));border-color:var(--gold);color:var(--warn);font-size:.62rem;padding:2px 7px}
+.tag-tox{background:var(--danger);color:#fff}
+/* On narrow screens, drop the secondary columns so rows stay compact and readable.
+   Columns: 1 common, 2 scientific, 3 family, 4 colour, 5 flowering, 6 field note. */
+@media(max-width:700px){
+  .field-table th:nth-child(3), .field-table td:nth-child(3),
+  .field-table th:nth-child(4), .field-table td:nth-child(4),
+  .field-table th:nth-child(5), .field-table td:nth-child(5){display:none}
+  .field-table .sci-cell{white-space:normal}
+  .field-table th,.field-table td{padding:9px 10px}
+}
+
 </style>
 </head>
 <body>
@@ -443,6 +466,7 @@ footer.site{border-top:1px solid var(--border);margin-top:60px;padding:52px 0 30
         <h4>Explore</h4>
         <ul>
           <li><a data-nav="explore">Flower Encyclopedia</a></li>
+          <li><a data-nav="wildflowers">Wildflowers — Field List</a></li>
           <li><a data-nav="featured">Top 20 — In Depth</a></li>
           <li><a data-nav="explore">Botanical Glossary</a></li>
           <li><a data-nav="ayurveda">Ayurveda Library</a></li>
@@ -5391,6 +5415,68 @@ FLOWERS.forEach(f => {
   if (i !== -1) f.categories.splice(i, 1);
 });
 
+
+/* ============================================================
+   PUSHPA VEDA — WILDFLOWER FIELD LIST (listed-only entries)
+   ------------------------------------------------------------
+   Deliberately light entries: enough to recognise a plant in the
+   field and nothing more. They carry NO Ayurvedic, medicinal or
+   research claims, and they are kept OUT of the main encyclopedia
+   (FLOWERS) because they have no full profile yet.
+
+   Fields: common, sci, family, colors, season, note, caution?
+   ============================================================ */
+const WILDFLOWER_LIST = [
+  { common:"Coat Buttons", sci:"Tridax procumbens", family:"Asteraceae", colors:["white","yellow"], season:"Monsoon–autumn",
+    note:"Ubiquitous on Indian roadsides and lawns; tiny white-rayed heads on a trailing herb." },
+  { common:"Mexican Poppy / Satyanashi", sci:"Argemone mexicana", family:"Papaveraceae", colors:["yellow","white"], season:"Winter–spring",
+    note:"Prickly-leaved roadside poppy with yellow latex; all parts toxic.", caution:true },
+  { common:"Tropical Spiderwort / Dayflower", sci:"Commelina benghalensis", family:"Commelinaceae", colors:["blue"], season:"Monsoon",
+    note:"Small blue two-petalled flowers; a creeping weed of moist, disturbed ground." },
+  { common:"Common Purslane", sci:"Portulaca oleracea", family:"Portulacaceae", colors:["yellow"], season:"Monsoon",
+    note:"Fleshy prostrate herb; the leaves and stems are eaten as a salad green in many regions." },
+  { common:"Creeping Wood Sorrel", sci:"Oxalis corniculata", family:"Oxalidaceae", colors:["yellow"], season:"Almost year-round",
+    note:"Trefoil leaves with a sour, oxalate-rich taste; tiny yellow flowers." },
+  { common:"Little Ironweed", sci:"Vernonia cinerea", family:"Asteraceae", colors:["purple","pink"], season:"Monsoon–autumn",
+    note:"Slender weed with fluffy violet heads; seed dispersed by wind." },
+  { common:"Lilac Tasselflower", sci:"Emilia sonchifolia", family:"Asteraceae", colors:["pink","purple"], season:"Monsoon",
+    note:"Delicate annual with a tassel of lilac florets; common in moist waste ground." },
+  { common:"Wedelia / Creeping Daisy", sci:"Sphagneticola calendulacea", family:"Asteraceae", colors:["yellow"], season:"Almost year-round",
+    note:"Creeping herb with yellow daisy heads; a coastal and roadside ground-cover." },
+  { common:"Chicory", sci:"Cichorium intybus", family:"Asteraceae", colors:["blue"], season:"Summer",
+    note:"Sky-blue flowers that open in the morning; the roasted root is used as a coffee substitute." },
+  { common:"Dandelion", sci:"Taraxacum officinale", family:"Asteraceae", colors:["yellow"], season:"Spring–summer",
+    note:"Yellow heads that become the familiar wind-blown seed clock; a temperate and Himalayan weed." },
+  { common:"Red Clover", sci:"Trifolium pratense", family:"Fabaceae", colors:["pink","red"], season:"Spring–summer",
+    note:"Clover with pink globe heads; a legume that enriches the soil with nitrogen." },
+  { common:"Ox-eye Daisy", sci:"Leucanthemum vulgare", family:"Asteraceae", colors:["white"], season:"Spring–summer",
+    note:"White daisy of meadows and verges; a classic temperate wildflower." },
+  { common:"Yarrow", sci:"Achillea millefolium", family:"Asteraceae", colors:["white","pink"], season:"Summer",
+    note:"Flat-topped white heads over finely divided leaves; a plant of Himalayan and temperate meadows." },
+  { common:"St John's Wort", sci:"Hypericum perforatum", family:"Hypericaceae", colors:["yellow"], season:"Summer",
+    note:"Yellow star flowers with translucent-dotted leaves; widely used in Western herbal medicine." },
+  { common:"Common Mallow", sci:"Malva sylvestris", family:"Malvaceae", colors:["purple","pink"], season:"Spring–summer",
+    note:"Pale-veined mauve flowers on a sprawling herb; a mallow of waysides and waste ground." },
+  { common:"Scarlet Pimpernel", sci:"Anagallis arvensis", family:"Primulaceae", colors:["red","orange","blue"], season:"Winter–spring",
+    note:"Brick-red flowers that close in dull weather; a small prostrate weed of cultivated ground." },
+  { common:"Field Bindweed", sci:"Convolvulus arvensis", family:"Convolvulaceae", colors:["white","pink"], season:"Spring–summer",
+    note:"Twining vine with pink-striped white trumpets; a persistent weed of fields." },
+  { common:"Primrose", sci:"Primula vulgaris", family:"Primulaceae", colors:["yellow"], season:"Spring",
+    note:"Pale yellow spring flowers of European woods; a temperate harbinger of spring." },
+  { common:"Foxglove", sci:"Digitalis purpurea", family:"Plantaginaceae", colors:["purple","pink","white"], season:"Summer",
+    note:"Tall spires of bell flowers; the source of the heart drug digitalis and highly toxic.", caution:true },
+  { common:"Bird's-foot Trefoil", sci:"Lotus corniculatus", family:"Fabaceae", colors:["yellow"], season:"Spring–summer",
+    note:"Low clover-like herb with yellow pea flowers; valuable for bees." },
+  { common:"Sweet Violet", sci:"Viola odorata", family:"Violaceae", colors:["purple","blue","white"], season:"Winter–spring",
+    note:"Deeply scented violet of hedgerows and shade; a classic of European folklore." },
+  { common:"Evening Primrose", sci:"Oenothera biennis", family:"Onagraceae", colors:["yellow"], season:"Summer",
+    note:"Pale yellow flowers that open in the evening for moth pollinators." },
+  { common:"Creeping Buttercup", sci:"Ranunculus repens", family:"Ranunculaceae", colors:["yellow"], season:"Spring–summer",
+    note:"Glossy yellow flowers on a creeping meadow herb; acrid and irritant if eaten.", caution:true },
+  { common:"Common Chickweed", sci:"Stellaria media", family:"Caryophyllaceae", colors:["white"], season:"Almost year-round",
+    note:"Star-like white flowers on a soft sprawling weed of cultivated ground." }
+];
+
 </script>
 <script>
 /* ============================================================
@@ -5409,7 +5495,7 @@ const CAT_MAP = Object.fromEntries(CATEGORIES.map(c => [c.id, c]));
 
 /* ---------- i18n (UI chrome only; botanical names are never translated) ---------- */
 const STRINGS = {
-  en:{    home:"Home", explore:"Explore Flowers", featured:"Top 20 In Depth", ayurveda:"Ayurveda", nonayur:"Non-Ayurvedic", culture:"Culture & Heritage", gardening:"Gardening",
+  en:{    home:"Home", explore:"Explore Flowers", wild:"Wildflowers", featured:"Top 20 In Depth", ayurveda:"Ayurveda", nonayur:"Non-Ayurvedic", culture:"Culture & Heritage", gardening:"Gardening",
     science:"Science & Research", conservation:"Nature & Conservation", tools:"Interactive Tools", articles:"Articles", about:"About",
     search_ph:"Search flowers by name, colour, region, or traditional use",
     hero_h1_pre:"Explore the Wonderful", hero_h1_em:"World of Flowers",
@@ -5420,7 +5506,7 @@ const STRINGS = {
     results:"results", all:"All", clear:"Clear filters", back:"Back", compare:"Compare", quiz:"Flower Quiz",
     favourites:"My Collection", add:"Add to collection", remove:"Remove", scientific_name:"Scientific name",
     native_region:"Native region", family:"Family", save:"Save", saved:"Saved" },
-  hi:{    home:"होम", explore:"फूल खोजें", featured:"शीर्ष २० विस्तार से", ayurveda:"आयुर्वेद", nonayur:"गैर-आयुर्वेदिक", culture:"संस्कृति व विरासत", gardening:"बागवानी",
+  hi:{    home:"होम", explore:"फूल खोजें", wild:"जंगली फूल", featured:"शीर्ष २० विस्तार से", ayurveda:"आयुर्वेद", nonayur:"गैर-आयुर्वेदिक", culture:"संस्कृति व विरासत", gardening:"बागवानी",
     science:"विज्ञान व शोध", conservation:"प्रकृति व संरक्षण", tools:"इंटरैक्टिव उपकरण", articles:"लेख", about:"परिचय",
     search_ph:"नाम, रंग, क्षेत्र या पारंपरिक उपयोग से फूल खोजें",
     hero_h1_pre:"फूलों की अद्भुत", hero_h1_em:"दुनिया का अन्वेषण करें",
@@ -5431,7 +5517,7 @@ const STRINGS = {
     results:"परिणाम", all:"सभी", clear:"फ़िल्टर हटाएँ", back:"वापस", compare:"तुलना", quiz:"फूल प्रश्नोत्तरी",
     favourites:"मेरा संग्रह", add:"संग्रह में जोड़ें", remove:"हटाएँ", scientific_name:"वैज्ञानिक नाम",
     native_region:"मूल क्षेत्र", family:"कुल", save:"सहेजें", saved:"सहेजा गया" },
-  mr:{    home:"मुख्यपृष्ठ", explore:"फुले शोधा", featured:"शीर्ष २० सविस्तर", ayurveda:"आयुर्वेद", nonayur:"आयुर्वेदेतर", culture:"संस्कृती व वारसा", gardening:"बागकाम",
+  mr:{    home:"मुख्यपृष्ठ", explore:"फुले शोधा", wild:"जंगली फुले", featured:"शीर्ष २० सविस्तर", ayurveda:"आयुर्वेद", nonayur:"आयुर्वेदेतर", culture:"संस्कृती व वारसा", gardening:"बागकाम",
     science:"विज्ञान व संशोधन", conservation:"निसर्ग व संवर्धन", tools:"परस्परसंवादी साधने", articles:"लेख", about:"आमच्याबद्दल",
     search_ph:"नाव, रंग, प्रदेश किंवा पारंपरिक वापराने फुले शोधा",
     hero_h1_pre:"फुलांच्या अद्भुत", hero_h1_em:"जगाचा शोध घ्या",
@@ -5466,6 +5552,7 @@ const state = {
   favorites: load(LS.fav, []),
   notes: load(LS.notes, {}),
   compare: [],
+  wfq: "",
   filters:{ q:"", color:"", season:"", region:"", category:"", fragrance:"", ayurveda:"", conservation:"", family:"" },
   quiz:{ level:"easy", idx:0, score:0, qs:[], answered:false }
 };
@@ -6447,6 +6534,63 @@ function viewNonAyurvedic(){
 }
 
 /* ============================================================
+   WILDFLOWERS — a deliberately plain field list (no extra detail)
+   ============================================================ */
+function wfSwatch(c){
+  const hex = (COLOR_MAP[c] && COLOR_MAP[c].hex) || "#cfcfcf";
+  const name = (COLOR_MAP[c] && COLOR_MAP[c].name) || c;
+  return `<span class="swatch" style="background:${hex}" title="${esc(name)}" aria-label="${esc(name)}"></span>`;
+}
+function viewWildflowers(){
+  const q = (state.wfq || "").trim().toLowerCase();
+  const full = FLOWERS.filter(f => f.categories.includes("wildflower"));
+  const listed = (typeof WILDFLOWER_LIST !== "undefined") ? WILDFLOWER_LIST : [];
+  const hit = (...parts) => !q || parts.join(" ").toLowerCase().includes(q);
+  const fullM = full.filter(f => hit(f.common, f.sci, f.family, f.flowering));
+  const listedM = listed.filter(o => hit(o.common, o.sci, o.family, o.season, o.note));
+  const head = `<thead><tr><th>Common name</th><th>Scientific name</th><th>Family</th><th>Colour</th><th>Flowering</th><th>Field note</th></tr></thead>`;
+  const rowsFull = fullM.map(f => `<tr>
+      <td><button class="linklike" data-open="${f.id}">${esc(f.common)}</button></td>
+      <td class="sci-cell">${esc(f.sci)}</td>
+      <td>${esc(f.family)}</td>
+      <td class="sw-cell">${f.colors.map(wfSwatch).join("")}</td>
+      <td>${esc(f.flowering)}</td>
+      <td>${esc(f.fact)}</td></tr>`).join("");
+  const rowsListed = listedM.map(o => `<tr>
+      <td>${esc(o.common)} <span class="chip chip-pending">listed</span></td>
+      <td class="sci-cell">${esc(o.sci)}</td>
+      <td>${esc(o.family)}</td>
+      <td class="sw-cell">${(o.colors||[]).map(wfSwatch).join("")}</td>
+      <td>${esc(o.season||"")}</td>
+      <td>${esc(o.note||"")}${o.caution ? ` <span class="tag tag-tox">Toxic</span>` : ""}</td></tr>`).join("");
+  const table = (rows, emptyMsg) => `<div class="table-scroll"><table class="field-table">${head}<tbody>${rows || `<tr><td colspan="6" class="muted" style="padding:20px;text-align:center">${esc(emptyMsg)}</td></tr>`}</tbody></table></div>`;
+  return `
+  <section class="section wrap">
+    <div class="breadcrumb"><button data-nav="home">Home</button> › <span>Wildflowers</span></div>
+    <div class="sec-head"><div><div class="eyebrow">Field list</div><h2>Wildflowers — Field List</h2>
+      <p>A deliberately plain section. No deep profiles, no expanded panels, no research tables — just what you need to recognise a plant outdoors: name, family, flower colour, flowering time and one line on the plant. Species with a full profile link straight through to it.</p></div></div>
+
+    <div class="callout info"><b>Why this section is minimal.</b> Wildflowers are identified in the field, quickly, and often on poor signal — a compact list is more useful here than a long profile. <b>${full.length}</b> wildflower species have full profiles; <b>${listed.length}</b> more are listed for reference only.</div>
+
+    <div class="callout warn"><b>On the "listed" entries.</b> These carry no medicinal, Ayurvedic or safety claims beyond a short caution — they are here to help you recognise the plant, nothing more. A one-line description is never enough to justify eating or using a wild plant.</div>
+
+    <div class="filters">
+      <input type="search" id="wfq" placeholder="Filter by name, family or season…" value="${esc(state.wfq||"")}" aria-label="Filter wildflowers">
+      <span class="result-count">${fullM.length + listedM.length} of ${full.length + listed.length} shown</span>
+      ${state.wfq ? `<button class="btn btn--ghost btn--sm reset" id="wfReset">Clear</button>` : ""}
+    </div>
+
+    <div class="subhead">Wildflowers with full profiles <span class="muted" style="text-transform:none;letter-spacing:0">— ${fullM.length} species</span></div>
+    ${table(rowsFull, "No matching wildflower with a full profile")}
+
+    <div class="subhead">Wildflowers listed for reference <span class="muted" style="text-transform:none;letter-spacing:0">— ${listedM.length} species · full profiles pending</span></div>
+    ${table(rowsListed, "No matching listed wildflower")}
+
+    <div class="callout info"><b>Want more detail?</b> Species with full profiles have identification, botany, growing, Ayurveda, research, safety and culture tabs. See the <button class="sec-link" data-nav="explore">Flower Encyclopedia</button> or the <button class="sec-link" data-nav="non-ayurvedic">No Ayurvedic Link</button> section.</div>
+  </section>`;
+}
+
+/* ============================================================
    RENDER
    ============================================================ */
 function render(opts){
@@ -6460,6 +6604,7 @@ function render(opts){
     case "flower": html = viewDetail(r.id); break;
     case "ayurveda": html = viewAyurveda(); break;
     case "non-ayurvedic": html = viewNonAyurvedic(); break;
+    case "wildflowers": html = viewWildflowers(); break;
     case "culture": html = viewCulture(); break;
     case "gardening": html = viewGardening(); break;
     case "science": html = viewScience(); break;
@@ -6477,7 +6622,7 @@ function render(opts){
 
 function renderChrome(){
   const r = state.route;
-  const navItems = [["home","home"],["explore","explore"],["featured","featured"],["ayurveda","ayurveda"],["non-ayurvedic","nonayur"],["culture","culture"],
+  const navItems = [["home","home"],["explore","explore"],["wildflowers","wild"],["featured","featured"],["ayurveda","ayurveda"],["non-ayurvedic","nonayur"],["culture","culture"],
     ["gardening","gardening"],["science","science"],["conservation","conservation"],["tools","tools"],["articles","articles"],["about","about"]];
   $("#navLinks").innerHTML = navItems.map(([v,k])=>`<button data-nav="${v}" class="${r.view===v?"active":""}">${esc(t(k))}</button>`).join("");
   $("#favCount").textContent = state.favorites.length || "";
@@ -6556,6 +6701,7 @@ function answerQuiz(choice){
 document.addEventListener("input", (e)=>{
   const id = e.target.id;
   if(id==="fq"){ state.filters.q = e.target.value; const pos = e.target.selectionStart; render({keepScroll:true}); const ni = $("#fq"); if(ni){ ni.focus(); try{ ni.setSelectionRange(pos,pos); }catch(_){} } return; }
+  if(id==="wfq"){ state.wfq = e.target.value; const pos = e.target.selectionStart; render({keepScroll:true}); const ni = $("#wfq"); if(ni){ ni.focus(); try{ ni.setSelectionRange(pos,pos); }catch(_){} } return; }
   if(id==="heroInput") return;
   if(e.target.dataset.note!==undefined){ state.notes[e.target.dataset.note] = e.target.value; save(LS.notes, state.notes); return; }
 });
@@ -6571,6 +6717,7 @@ document.addEventListener("submit", (e)=>{
 
 /* buttons that re-render need fresh listeners -> delegated for reset/export/theme */
 document.addEventListener("click", (e)=>{
+  if(e.target.id==="wfReset"){ state.wfq = ""; render({keepScroll:true}); return; }
   if(e.target.id==="freset" || e.target.id==="freset2"){
     state.filters = { q:"",color:"",season:"",region:"",category:"",fragrance:"",ayurveda:"",conservation:"",family:"" }; render(); return;
   }
