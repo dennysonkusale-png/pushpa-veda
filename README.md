@@ -77,6 +77,10 @@ safety, a gardening calendar, cultural depth, and references.
 classical Ayurvedic standing (82 of 139), grouped by origin and generated from each species'
 own Ayurveda profile so it can never drift out of step (see §7).
 
+**Wildflowers — Field List** — a deliberately plain section with **no extra detail by design**:
+a compact table (name, family, colour, season, one field note) covering 55 wildflowers — 31 with
+full profiles and 24 listed for reference only (see §8).
+
 **Interactive tools** — advanced multi-facet search; compare two or three species
 side by side (19 attributes); a quiz with easy/medium/hard levels; a personal
 collection with private notes and CSV export; and an **Image Manager** that lets you
@@ -379,7 +383,41 @@ periwinkle) are toxic.
 
 ---
 
-## 8. Path to the full-stack deployment
+## 8. The Wildflower Field List
+
+A separate section, **deliberately plain** — no deep profiles, no expanded panels, no research
+tables. Wildflowers are usually identified in the field, quickly and often on poor signal, so a
+compact table serves better than a long profile. Each row gives the common name, scientific name,
+family, flower colour, flowering time and one field note; species with a full profile link
+straight through to it.
+
+**55 species in total:**
+
+- **31 wildflowers with full profiles** — the species already in the encyclopedia that carry the
+  "wildflower" tag, shown here in compact form.
+- **24 wildflowers listed for reference only** — light entries added specifically for this
+  section. They carry **no Ayurveda, research or safety data** beyond a short caution, and they
+  are deliberately kept **out** of the main encyclopedia and out of search, because they have no
+  full profile yet. Each is marked **listed**.
+
+The 24 listed species are common wild and wayside plants: coat buttons, Mexican poppy, dayflower,
+purslane, wood sorrel, little ironweed, lilac tasselflower, wedelia, chicory, dandelion, red
+clover, ox-eye daisy, yarrow, St John's wort, common mallow, scarlet pimpernel, field bindweed,
+primrose, foxglove, bird's-foot trefoil, sweet violet, evening primrose, creeping buttercup and
+chickweed.
+
+**A filter box** narrows the list by name, family or season, and the page states plainly that a
+one-line description is never enough to justify eating or using a wild plant. Three of the listed
+species — Mexican poppy, foxglove and creeping buttercup — carry a **Toxic** tag.
+
+**Promoting a listed species to a full profile** is a copy-and-paste job: move its entry from
+`WILDFLOWER_LIST` into `FLOWERS` in the data section of `pushpa-veda.html` and fill in the
+remaining fields. It then joins the encyclopedia, the search and the category counts
+automatically.
+
+---
+
+## 9. Path to the full-stack deployment
 
 The static edition is a faithful, runnable slice of the production plan. The brief's
 preferred stack maps onto it as follows:
@@ -415,7 +453,7 @@ fields against their cited sources.
 
 ---
 
-## 9. Safety, disclaimers and scope
+## 10. Safety, disclaimers and scope
 
 - **Educational use only.** Pushpa Veda is not medical advice, diagnosis or treatment,
   and is not a substitute for professional guidance.
@@ -430,7 +468,7 @@ fields against their cited sources.
 
 ---
 
-## 10. Accessibility & performance
+## 11. Accessibility & performance
 
 - Semantic HTML, landmark regions, skip link, labelled controls, keyboard-operable
   cards and menus, `role`/`aria-label` on interactive elements.
