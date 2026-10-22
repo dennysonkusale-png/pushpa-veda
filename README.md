@@ -20,6 +20,7 @@ built on traceable sources, with uncertainty stated plainly rather than papered 
 | `README.md` | This document — architecture, data model, how to run, deployment, and the content-verification workflow. |
 | `schema.sql` | A normalised PostgreSQL schema for the full-stack version described in the brief. |
 | `.env.example` | Example environment variables (placeholders only — no real secrets). |
+| `images/` | 163 flower photographs (JPEG) — one for every species, sourced from Wikimedia Commons with per-image credit and licence. |
 
 The site is a fully interactive application, not a mockup: every navigation link,
 filter, search box, tab, quiz, comparison and collection control works.
@@ -42,6 +43,10 @@ A single self-contained file containing three layers:
 **Homepage** — hero with global search; Flower of the Day (date-based rotation);
 16 flower categories; colour explorer; season explorer; schematic world-region map;
 featured learning collections; editorial article cards; full footer with policy links.
+
+**Real flower photographs** — every species now ships with a genuine photograph sourced from
+Wikimedia Commons, each with its photographer, licence and a link to the original file page
+shown beneath the image (see §5a).
 
 **Flower Encyclopedia** — **139 species across 56 plant families**, each with a dedicated
 profile page containing:
@@ -296,6 +301,52 @@ Checked against the licence pages themselves. **Commercial use, no attribution r
 (so the photo genuinely shows the species named) and the **Biodiversity Heritage Library** for
 historic botanical plates; fall back to Unsplash/Pexels/Pixabay for general imagery. Record
 credit and licence for every image either way.
+
+---
+
+## 5a. The photographs shipped with this edition
+
+**163 photographs** — one for **every** species (139 encyclopedia profiles + 24 listed
+wildflowers). All come from **Wikimedia Commons** and all are under licences that permit
+commercial use. They are stored in `images/` and referenced by the `FLOWER_IMAGES` block in the
+data section of `pushpa-veda.html`.
+
+**Licences used** (no NC or ND anywhere; **125 require attribution, 38 do not**):
+
+| Licence | Count | Attribution required? |
+|---|---|---|
+| CC BY-SA 4.0 | 72 | Yes |
+| CC BY-SA 3.0 | 32 | Yes |
+| CC0 | 24 | No |
+| CC BY 4.0 | 14 | Yes |
+| Public domain | 14 | No |
+| CC BY-SA 2.0 | 3 | Yes |
+| CC BY 2.0 | 2 | Yes |
+| CC BY 3.0 / CC BY 3.0 US | 2 | Yes |
+
+**Attribution is displayed, not just stored.** Every photo shows `Photo: <photographer> ·
+<licence> · source` beneath the image, with the "source" being a link to the original Commons
+file page. That satisfies the attribution and licence-notice requirements of CC BY and CC BY-SA,
+and the images themselves are redistributed **unmodified** (they are the thumbnails Wikimedia
+generated, so no derivative-work question arises for ShareAlike).
+
+**How they were chosen — and what to watch for.** Photos were selected by searching Commons for
+each species' accepted scientific name, then filtered to reject line drawings and botanical
+plates, herbarium sheets, seed-pod and leaf studies, book pages, and near-white images (a
+pixel test catches plates on paper). Every image was then reviewed visually and roughly forty
+were replaced or hand-picked. **Commons identifications are community-contributed and are not
+independently verified here** — treat the species match as provisional and confirm it yourself
+before relying on a photograph. The site says this on every profile too.
+
+**Coverage:** every species has a photograph. Where an early automatic pick was wrong (a line
+drawing, a book page, seed pods, a bare tree), the image was re-fetched under stricter rules or
+chosen by hand from the Commons candidates. Any image can still be replaced through the Image
+Manager (see §5), and clearing one now sticks — the built-in photo does not come back.
+
+**Hosting.** The photographs are served from the project's own GitHub Pages site
+(`…github.io/pushpa-veda/images/…`), so the single-file `pushpa-veda.html` works online without
+any third party being hotlinked. Opened offline with no `images/` folder beside it, the page
+degrades gracefully to the vector illustrations.
 
 ---
 
