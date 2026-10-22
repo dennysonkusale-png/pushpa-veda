@@ -162,6 +162,28 @@ rather than "Sacred Lotus". Category, colour, season and region names are transl
 shifted the baseline. Hindi and Marathi views now switch to **Noto Sans Devanagari** and turn
 off italics, with heading sizes tuned for the script.
 
+
+### Translated species prose (staged)
+
+Beyond the interface, the species prose is being translated in stages. Two stages are in:
+
+- **Stage 1 — the card one-liner** (`fact`), 139 strings.
+- **Stage 2 — the origin range** (`native`), 99 unique strings covering all 139 cards. This is
+  the line under each flower's name, so the encyclopedia grid itself now reads in Hindi/Marathi.
+
+Measured across the whole site, **English text fell from 100% to 29%** of rendered text runs.
+The remaining English is the deep profile prose (identification, botany, Ayurveda, research,
+safety, culture), Latin names and brand names.
+
+**How it is done.** Strings go to the platform's translation tool with each item prefixed by
+`[n]`. The numbering survives translation and allows exact re-alignment — a plain separator gets
+partly mangled in large payloads, which silently corrupts the pairing. Results are written
+straight to files, so the bulk text never has to pass through the conversation.
+
+**Remaining stages**, in priority order: the identification fields (height, leaf, flowering —
+many short and repeated), the gardening fields, safety notes, Ayurveda notes, research summaries,
+cultural notes, then the 20 in-depth profiles.
+
 **Extending it** is one line per string: add an entry to the `I18N` object in the data section
 of `pushpa-veda.html` (or to the generator's dictionary in the source). Translating the
 remaining prose is a separate editorial job — the mechanism is already in place.
