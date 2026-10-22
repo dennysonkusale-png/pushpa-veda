@@ -11,7 +11,7 @@
 <meta name="theme-color" content="#234D35">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=Tiro+Devanagari+Sanskrit&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=Tiro+Devanagari+Sanskrit&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    PUSHPA VEDA — styles
@@ -414,6 +414,27 @@ footer.site{border-top:1px solid var(--border);margin-top:60px;padding:52px 0 30
   .field-table .sci-cell{white-space:normal}
   .field-table th,.field-table td{padding:9px 10px}
 }
+
+/* ---------- Translation notice ---------- */
+.i18n-note{max-width:var(--maxw);margin:12px auto 0;padding:10px 16px;border:1px solid var(--border-strong);
+  border-radius:var(--radius-sm);background:var(--surface-2);color:var(--text-dim);font-size:.82rem;line-height:1.5}
+
+/* ---------- Indic typography (Hindi / Marathi) ----------
+   Devanagari has no true italic, so a synthesised oblique looks wrong and
+   shifts the baseline. Use a proper Devanagari face and switch off italics. */
+:root[lang="hi"], :root[lang="mr"]{ --dev-sans: "Noto Sans Devanagari", "Tiro Devanagari Sanskrit", system-ui, sans-serif; }
+:root[lang="hi"] body, :root[lang="mr"] body{ font-family: var(--dev-sans); }
+:root[lang="hi"] em, :root[lang="mr"] em,
+:root[lang="hi"] i,  :root[lang="mr"] i,
+:root[lang="hi"] cite, :root[lang="mr"] cite{ font-style: normal; }
+:root[lang="hi"] .hero h1, :root[lang="mr"] .hero h1{ font-family: var(--dev-sans); font-weight: 700; letter-spacing: 0; line-height: 1.28; }
+:root[lang="hi"] .hero h1 em, :root[lang="mr"] .hero h1 em{ color: var(--accent-2); }
+:root[lang="hi"] h1, :root[lang="mr"] h1,
+:root[lang="hi"] h2, :root[lang="mr"] h2,
+:root[lang="hi"] h3, :root[lang="mr"] h3{ font-family: var(--dev-sans); font-weight: 700; letter-spacing: 0; }
+:root[lang="hi"] .eyebrow, :root[lang="mr"] .eyebrow,
+:root[lang="hi"] .subhead, :root[lang="mr"] .subhead{ font-family: var(--dev-sans); letter-spacing: .04em; }
+:root[lang="hi"] .field-table .sci-cell, :root[lang="mr"] .field-table .sci-cell{ font-style: italic; }
 
 </style>
 </head>
@@ -5645,6 +5666,920 @@ const WILDFLOWER_LIST = [
     note:"Star-like white flowers on a soft sprawling weed of cultivated ground." }
 ];
 
+
+/* ============================================================
+   PUSHPA VEDA — interface translation data (Hindi / Marathi)
+   Generated dictionary: English source string -> translation.
+   Brand names, Latin binomials and the detailed species prose
+   are deliberately NOT translated.
+   ============================================================ */
+const I18N = {
+  "hi": {
+ "Clear": "साफ़ करें",
+ "Credit": "श्रेय",
+ "Image URL or path": "छवि URL या पथ",
+ "Licence": "लाइसेंस",
+ "Save image": "छवि सहेजें",
+ "Upload a file": "फ़ाइल अपलोड करें",
+ "Toxic": "विषैला",
+ "Full in-depth profile →": "पूरी विस्तृत प्रोफ़ाइल →",
+ "Home": "होम",
+ "In depth →": "विस्तार से →",
+ "Compare Flowers": "फूलों की तुलना करें",
+ "Editorial draft": "संपादकीय प्रारूप",
+ "Flower Quiz": "फूल प्रश्नोत्तरी",
+ "Image Manager": "छवि प्रबंधक",
+ "My Collection": "मेरा संग्रह",
+ "Read →": "पढ़ें →",
+ "Advanced Search": "विस्तृत खोज",
+ "All": "सभी",
+ "Bookmark flowers, add private notes, and export your observations.": "फूलों को सहेजें, निजी टिप्पणियाँ जोड़ें और अपने अवलोकन निर्यात करें।",
+ "Filter by name, colour, region, season, family, fragrance, Ayurvedic documentation and conservation status.": "नाम, रंग, क्षेत्र, ऋतु, कुल, सुगंध, आयुर्वेदिक प्रलेखन और संरक्षण स्थिति से छाँटें।",
+ "Flower Tools": "फूल उपकरण",
+ "Four ways to explore the encyclopedia actively.": "विश्वकोश को सक्रिय रूप से खोजने के चार तरीके।",
+ "Interact": "सहभागी हों",
+ "Interactive Tools": "इंटरैक्टिव उपकरण",
+ "Test yourself across three difficulty levels — names, families, Sanskrit names, regions and traditional uses.": "तीन कठिनाई स्तरों पर स्वयं को परखें — नाम, कुल, संस्कृत नाम, क्षेत्र और पारंपरिक उपयोग।",
+ "Ayurveda": "आयुर्वेद",
+ "Any": "कोई भी",
+ "Colour": "रंग",
+ "Family": "कुल",
+ "Flower Encyclopedia": "फूल विश्वकोश",
+ "About": "परिचय",
+ "Common name": "सामान्य नाम",
+ "Educational content only.": "केवल शैक्षिक सामग्री।",
+ "Encyclopedia": "विश्वकोश",
+ "Field note": "क्षेत्र टिप्पणी",
+ "Flagship profiles": "प्रमुख प्रोफ़ाइल",
+ "Flowering": "पुष्पन",
+ "Flowers in Ayurveda: Traditional Wisdom and Modern Understanding": "आयुर्वेद में फूल: पारंपरिक ज्ञान और आधुनिक समझ",
+ "Get code block": "कोड ब्लॉक प्राप्त करें",
+ "Guna": "गुण",
+ "Medical & Editorial Disclaimer": "चिकित्सकीय और संपादकीय अस्वीकरण",
+ "Rasa": "रस",
+ "References": "संदर्भ",
+ "Science & Research": "विज्ञान और शोध",
+ "Scientific name": "वैज्ञानिक नाम",
+ "Top 20 Flowers — In Depth": "शीर्ष 20 फूल — विस्तार से",
+ "Vipaka": "विपाक",
+ "Virya": "वीर्य",
+ "Wikimedia Commons": "विकिमीडिया कॉमन्स",
+ "← Encyclopedia": "← विश्वकोश",
+ "⇄ Compare": "⇄ तुलना करें",
+ "★ In depth": "★ विस्तार से",
+ "☆ Add to collection": "☆ संग्रह में जोड़ें",
+ "1. Mix bloom times": "1. पुष्पन काल मिलाएँ",
+ "2. Go native first": "2. पहले देशी प्रजातियाँ चुनें",
+ "25 Flowers in Ayurveda": "आयुर्वेद में 25 फूल",
+ "3. Avoid pesticides": "3. कीटनाशकों से बचें",
+ "4. Provide water & shelter": "4. जल और आश्रय दें",
+ "A first look at the encyclopedia": "विश्वकोश पर एक पहली नज़र",
+ "A note on the four parameters": "चार मानकों पर एक टिप्पणी",
+ "A shallow dish and undisturbed corners help.": "उथली तश्तरी और अबाधित कोने सहायक होते हैं।",
+ "About Pushpa Veda": "पुष्पवेद के बारे में",
+ "About the photographs already built in.": "पहले से जोड़ी गई तस्वीरों के बारे में।",
+ "Articles": "लेख",
+ "Articles & explainers": "लेख और व्याख्याएँ",
+ "Articles & Explainers": "लेख और व्याख्याएँ",
+ "Ayurvedic link now has its own section:": "आयुर्वेदिक संबंध अब अपना अलग अनुभाग रखता है:",
+ "Beautiful — and dangerous. Safety first.": "सुंदर — और खतरनाक। सुरक्षा पहले।",
+ "Best for pollinators": "परागणकर्ताओं के लिए सर्वोत्तम",
+ "Beware of the leap.": "बड़े दावों से सावधान रहें।",
+ "Botanical description": "वनस्पति विवरण",
+ "Botanical fact": "वनस्पति तथ्य",
+ "Browse": "ब्राउज़ करें",
+ "Browse all 139 species →": "सभी 139 प्रजातियाँ देखें →",
+ "Browse flowers": "फूल देखें",
+ "Buddhist traditions": "बौद्ध परंपराएँ",
+ "Build a pollinator garden": "परागणकर्ता उद्यान बनाएँ",
+ "Category": "श्रेणी",
+ "CC BY and CC BY-SA require credit": "CC BY और CC BY-SA में श्रेय आवश्यक है",
+ "Choose species flowering in spring, summer, monsoon and autumn.": "वसंत, ग्रीष्म, वर्षा और शरद में खिलने वाली प्रजातियाँ चुनें।",
+ "Classical context": "शास्त्रीय संदर्भ",
+ "Classical only": "केवल शास्त्रीय",
+ "Clear filters": "फ़िल्टर हटाएँ",
+ "Climate & flowering": "जलवायु और पुष्पन",
+ "Colours are assigned from described flower colour. Select a colour to filter the encyclopedia.": "रंग वर्णित पुष्प-रंग के आधार पर दिए गए हैं। विश्वकोश छाँटने के लिए कोई रंग चुनें।",
+ "Compare": "तुलना करें",
+ "Conservation status is shown only when attributable to a reliable authority.": "संरक्षण स्थिति केवल तभी दिखाई जाती है जब वह किसी विश्वसनीय स्रोत से जुड़ी हो।",
+ "Container gardening": "गमले में बागवानी",
+ "Content verification workflow": "सामग्री सत्यापन प्रक्रिया",
+ "Cultural interpretation.": "सांस्कृतिक व्याख्या।",
+ "Cultural meanings are presented as interpretation, not fact, and are not universal across communities.": "सांस्कृतिक अर्थ व्याख्या के रूप में प्रस्तुत हैं, तथ्य के रूप में नहीं, और सभी समुदायों में एक समान नहीं हैं।",
+ "Cultural significance": "सांस्कृतिक महत्व",
+ "Culture & Heritage": "संस्कृति व विरासत",
+ "Culture & meaning": "संस्कृति और अर्थ",
+ "Did you know?": "क्या आप जानते हैं?",
+ "Disclaimer": "अस्वीकरण",
+ "Discover Ayurveda": "आयुर्वेद जानें",
+ "Discover Flowers by Colour": "रंग के अनुसार फूल खोजें",
+ "Discover Flowers by Season": "ऋतु के अनुसार फूल खोजें",
+ "Do not use any plant described here to treat a medical condition based on this site alone.": "केवल इस साइट के आधार पर यहाँ वर्णित किसी पौधे का उपयोग किसी रोग के उपचार के लिए न करें।",
+ "Documented (classical or later)": "प्रलेखित (शास्त्रीय या उत्तरकालीन)",
+ "Dosha": "दोष",
+ "Each profile states the plant part actually used, the classical parameters": "प्रत्येक प्रोफ़ाइल में वास्तव में प्रयुक्त पौधे का भाग, शास्त्रीय मानक",
+ "Easy-to-grow species": "आसानी से उगने वाली प्रजातियाँ",
+ "Ecology, Conservation & Biodiversity": "पारिस्थितिकी, संरक्षण और जैव विविधता",
+ "Editorial": "संपादकीय",
+ "Editorial & medical policy": "संपादकीय और चिकित्सकीय नीति",
+ "Editorial policy": "संपादकीय नीति",
+ "Editorial status.": "संपादकीय स्थिति।",
+ "Edits made here are stored in this browser and apply immediately.": "यहाँ किए गए बदलाव इस ब्राउज़र में संग्रहित होते हैं और तुरंत लागू होते हैं।",
+ "Educational information only.": "केवल शैक्षिक जानकारी।",
+ "Educational pieces across botany, Ayurveda, culture, ecology and gardening.": "वनस्पति विज्ञान, आयुर्वेद, संस्कृति, पारिस्थितिकी और बागवानी पर शैक्षिक लेख।",
+ "Educational use only.": "केवल शैक्षिक उपयोग हेतु।",
+ "Effects in animals. Closer, still not transferable to people without trials.": "पशुओं में प्रभाव। अधिक निकट, परंतु परीक्षणों के बिना मनुष्यों पर लागू नहीं।",
+ "Etymology": "व्युत्पत्ति",
+ "Even \"natural\" sprays can harm pollinators.": "\"प्राकृतिक\" छिड़काव भी परागणकर्ताओं को हानि पहुँचा सकते हैं।",
+ "Every medical, botanical and safety claim carries a review status:": "प्रत्येक चिकित्सकीय, वनस्पतिक और सुरक्षा दावे की एक समीक्षा स्थिति होती है:",
+ "Every species in the encyclopedia carries an Ayurveda tab marked": "विश्वकोश की प्रत्येक प्रजाति में आयुर्वेद टैब अंकित है",
+ "Every species with": "प्रत्येक प्रजाति जिसका",
+ "Evidence": "प्रमाण",
+ "Explore": "खोजें",
+ "Explore Flower Categories": "फूल श्रेणियाँ खोजें",
+ "Explore Flowers": "फूल खोजें",
+ "Explore the Wonderful": "खोजें अद्भुत",
+ "Export image map (JSON)": "छवि मैप निर्यात करें (JSON)",
+ "Featured": "विशेष",
+ "Featured Learning Collections": "विशेष शिक्षण संग्रह",
+ "Festivals & weddings": "त्योहार और विवाह",
+ "Field list": "क्षेत्र सूची",
+ "Flagship profile.": "प्रमुख प्रोफ़ाइल।",
+ "Floral motifs and mandala forms are carved into temple stone; fresh flowers are offered daily.": "मंदिर के पत्थर पर पुष्प-अलंकरण और मंडल आकार उत्कीर्ण हैं; प्रतिदिन ताज़े फूल चढ़ाए जाते हैं।",
+ "Flower of the Day": "आज का फूल",
+ "Flowering periods vary by climate, altitude, hemisphere and cultivar.": "पुष्पन काल जलवायु, ऊँचाई, गोलार्ध और किस्म के अनुसार बदलता है।",
+ "Flowering plants and the living networks that depend on them.": "पुष्पी पौधे और उन पर निर्भर जीवन-जाल।",
+ "Flowers are used reverently in ritual; the lotus again carries symbolic weight across traditions.": "अनुष्ठानों में फूल श्रद्धापूर्वक प्रयुक्त होते हैं; कमल पुनः सभी परंपराओं में प्रतीकात्मक महत्व रखता है।",
+ "Flowers Around the World": "दुनिया भर के फूल",
+ "Flowers central to Indian traditions": "भारतीय परंपराओं के केंद्रीय फूल",
+ "Flowers central to worship, festivals and ritual.": "पूजा, त्योहार और अनुष्ठान के केंद्रीय फूल।",
+ "Flowers in Indian Culture & Spiritual Traditions": "भारतीय संस्कृति और आध्यात्मिक परंपराओं में फूल",
+ "Flowers That Feed Pollinators": "परागणकर्ताओं को पोषण देने वाले फूल",
+ "Flowers with No Ayurvedic Link": "आयुर्वेद से असंबद्ध फूल",
+ "Formulations": "योग",
+ "Fragrant": "सुगंधित",
+ "Fragrant Flowers & Essential Oils": "सुगंधित फूल और आवश्यक तेल",
+ "Fragrant only": "केवल सुगंधित",
+ "Gardening": "बागवानी",
+ "Gardening (expanded)": "बागवानी (विस्तृत)",
+ "Gardening Guides": "बागवानी मार्गदर्शिकाएँ",
+ "Geography": "भूगोल",
+ "Grow": "उगाएँ",
+ "Grow from cultivated or nursery stock; never collect rare species from the wild.": "उगाई गई या नर्सरी की प्रजातियाँ लगाएँ; दुर्लभ प्रजातियाँ कभी जंगल से न लें।",
+ "Growing": "उगाना",
+ "Growth stages": "वृद्धि अवस्थाएँ",
+ "Habitat loss": "आवास का ह्रास",
+ "Handle With Care: Toxic Flowers": "सावधानी से: विषैले फूल",
+ "Hard": "कठिन",
+ "Harvest flowers sparingly, leave seed to set, and avoid protected species entirely.": "फूल संयम से एकत्र करें, बीज बनने दें, और संरक्षित प्रजातियों से पूरी तरह बचें।",
+ "Heritage": "विरासत",
+ "Hindu traditions": "हिंदू परंपराएँ",
+ "Historic botanical illustrations — public domain": "ऐतिहासिक वनस्पति चित्र — सार्वजनिक डोमेन",
+ "How changes are saved.": "बदलाव कैसे सहेजे जाते हैं।",
+ "How this section is defined.": "यह अनुभाग कैसे परिभाषित है।",
+ "How to read this section.": "यह अनुभाग कैसे पढ़ें।",
+ "How to tell it apart": "इसे कैसे पहचानें",
+ "Human clinical trials": "मानव नैदानिक परीक्षण",
+ "Identification": "पहचान",
+ "Identifying the compounds a plant makes — the starting point, never the conclusion.": "पौधे में बनने वाले यौगिकों की पहचान — आरंभ बिंदु, कभी निष्कर्ष नहीं।",
+ "Import JSON": "JSON आयात करें",
+ "Important": "महत्वपूर्ण",
+ "Laboratory studies": "प्रयोगशाला अध्ययन",
+ "Licensing — please read.": "लाइसेंसिंग — कृपया पढ़ें।",
+ "Local species support more local pollinators.": "स्थानीय प्रजातियाँ अधिक स्थानीय परागणकर्ताओं को सहारा देती हैं।",
+ "Looking for the opposite list?": "विपरीत सूची चाहिए?",
+ "Manage photo": "तस्वीर प्रबंधित करें",
+ "Many flowers — including several profiled here — are toxic. Ingestion can be dangerous.": "अनेक फूल — जिनमें यहाँ वर्णित कई भी शामिल हैं — विषैले हैं। सेवन खतरनाक हो सकता है।",
+ "Media": "मीडिया",
+ "Medical disclaimer": "चिकित्सकीय अस्वीकरण",
+ "Medical disclaimer.": "चिकित्सकीय अस्वीकरण।",
+ "Medium": "मध्यम",
+ "Most-studied species": "सर्वाधिक अध्ययनित प्रजातियाँ",
+ "Native region": "मूल क्षेत्र",
+ "Native vs invasive": "देशी बनाम आक्रामक",
+ "Nature & Conservation": "प्रकृति व संरक्षण",
+ "Nectar and pollen plants for bees, butterflies and birds.": "मधुमक्खियों, तितलियों और पक्षियों के लिए रस और पराग देने वाले पौधे।",
+ "Never assume a plant is safe because it is natural, or because it resembles a familiar one.": "किसी पौधे को केवल इसलिए सुरक्षित न मानें कि वह प्राकृतिक है, या किसी परिचित पौधे जैसा दिखता है।",
+ "New-World plants — no classical claim is even possible": "नई दुनिया के पौधे — शास्त्रीय दावा संभव ही नहीं",
+ "No fake citations, invented papers or fabricated Sanskrit names are permitted.": "कोई नकली उद्धरण, गढ़े हुए शोधपत्र या मनगढ़ंत संस्कृत नाम अनुमत नहीं हैं।",
+ "On conservation status.": "संरक्षण स्थिति पर।",
+ "On the \"listed\" entries.": "\"सूचीबद्ध\" प्रविष्टियों पर।",
+ "Open full profile →": "पूरी प्रोफ़ाइल खोलें →",
+ "Other ornamentals, orchids and tropical shrubs": "अन्य सजावटी पौधे, ऑर्किड और उष्णकटिबंधीय झाड़ियाँ",
+ "Our evidence ladder.": "हमारी प्रमाण-सीढ़ी।",
+ "Outside the tradition": "परंपरा के बाहर",
+ "Overview": "अवलोकन",
+ "Part used": "प्रयुक्त भाग",
+ "Pick two or three flowers": "दो या तीन फूल चुनें",
+ "Pollination": "परागण",
+ "Pollinator-friendly planting": "परागणकर्ता-अनुकूल रोपण",
+ "Post-digestive effect.": "पाचनोत्तर प्रभाव।",
+ "Potency — broadly heating or cooling.": "वीर्य — मोटे तौर पर उष्ण या शीत।",
+ "Pregnancy, breastfeeding, children, older adults and people on medication face additional risk.": "गर्भावस्था, स्तनपान, बच्चे, वृद्धजन और दवा लेने वाले लोगों में अतिरिक्त जोखिम होता है।",
+ "Pushpa Veda": "पुष्पवेद",
+ "Qualities — e.g. heavy/light, unctuous/dry.": "गुण — जैसे भारी/हल्का, स्निग्ध/रूक्ष।",
+ "Quiz": "प्रश्नोत्तरी",
+ "Rare Flowers of India": "भारत के दुर्लभ फूल",
+ "Read the Medical & Editorial Disclaimer →": "चिकित्सकीय और संपादकीय अस्वीकरण पढ़ें →",
+ "Recently Published": "हाल ही में प्रकाशित",
+ "Region": "क्षेत्र",
+ "Regional traditions": "क्षेत्रीय परंपराएँ",
+ "Regional variation": "क्षेत्रीय भिन्नता",
+ "Research": "शोध",
+ "Research (expanded)": "शोध (विस्तृत)",
+ "Research is labelled by study type; laboratory findings are never called cures.": "शोध अध्ययन-प्रकार के अनुसार अंकित है; प्रयोगशाला निष्कर्षों को कभी इलाज नहीं कहा जाता।",
+ "Respect the toxic ones": "विषैलों का सम्मान करें",
+ "Responsible harvesting": "जिम्मेदार संग्रहण",
+ "Safety": "सुरक्षा",
+ "Safety (expanded)": "सुरक्षा (विस्तृत)",
+ "Safety is treated as a first-class feature, not a footnote.": "सुरक्षा को पादटिप्पणी नहीं, प्रमुख विशेषता माना गया है।",
+ "Search": "खोजें",
+ "Season": "ऋतु",
+ "Seasonal calendar.": "मौसमी कैलेंडर।",
+ "Seasonality": "मौसमीयता",
+ "See": "देखें",
+ "See all 20 →": "सभी 20 देखें →",
+ "Seek emergency care immediately if someone may have eaten a toxic plant.": "यदि किसी ने विषैला पौधा खाया हो सकता है तो तुरंत आपातकालीन सहायता लें।",
+ "Select species below to build a comparison table.": "तुलना तालिका बनाने के लिए नीचे प्रजातियाँ चुनें।",
+ "Selected profiles": "चयनित प्रोफ़ाइल",
+ "Sensitive species": "संवेदनशील प्रजातियाँ",
+ "Showing all matching species": "सभी मेल खाती प्रजातियाँ दिखाई जा रही हैं",
+ "Species documented in Indian traditional medical literature.": "भारतीय पारंपरिक चिकित्सा साहित्य में प्रलेखित प्रजातियाँ।",
+ "Species needing conservation attention": "संरक्षण ध्यान देने योग्य प्रजातियाँ",
+ "Species often discussed in wellness contexts but": "प्रजातियाँ जिनकी चर्चा स्वास्थ्य संदर्भों में होती है परंतु",
+ "Species prized for scent and perfume.": "सुगंध और इत्र के लिए प्रतिष्ठित प्रजातियाँ।",
+ "Species whose wild populations need protection.": "जिनकी जंगली आबादी को संरक्षण चाहिए।",
+ "Species with a classical Ayurvedic identity": "शास्त्रीय आयुर्वेदिक पहचान वाली प्रजातियाँ",
+ "Species-identified photos — check the licence (attribution may be required)": "प्रजाति-पहचान वाली तस्वीरें — लाइसेंस जाँचें (श्रेय आवश्यक हो सकता है)",
+ "Still not medical advice.": "फिर भी चिकित्सकीय सलाह नहीं।",
+ "Sustainable cultivation": "टिकाऊ खेती",
+ "Tap the ☆ on any flower to bookmark it here.": "यहाँ सहेजने के लिए किसी भी फूल पर ☆ दबाएँ।",
+ "Taste — the immediate sensory quality of the drug.": "रस — औषध की तात्कालिक इंद्रिय गुणवत्ता।",
+ "Taxonomy follows accepted scientific names, not invented ones.": "वर्गीकरण स्वीकृत वैज्ञानिक नामों का अनुसरण करता है, गढ़े हुए नामों का नहीं।",
+ "Taxonomy notes": "वर्गीकरण टिप्पणियाँ",
+ "Technology": "प्रौद्योगिकी",
+ "Temperate, Mediterranean and East Asian garden flowers": "शीतोष्ण, भूमध्यसागरीय और पूर्वी एशियाई उद्यान-पुष्प",
+ "Temple architecture & ritual": "मंदिर स्थापत्य और अनुष्ठान",
+ "The lotus is a central image of purity and awakening; offering flowers is a common act of devotion.": "कमल पवित्रता और जागृति का केंद्रीय प्रतीक है; फूल चढ़ाना भक्ति का सामान्य कर्म है।",
+ "Three cautions.": "तीन सावधानियाँ।",
+ "Top 20 In Depth": "शीर्ष 20 विस्तार से",
+ "Traditional actions (karma)": "पारंपरिक कर्म",
+ "Traditional and scientific claims are held to different, clearly-labelled standards.": "पारंपरिक और वैज्ञानिक दावों के लिए भिन्न, स्पष्ट रूप से अंकित मानक हैं।",
+ "Traditional Ayurvedic profile (expanded)": "पारंपरिक आयुर्वेदिक प्रोफ़ाइल (विस्तृत)",
+ "Traditional knowledge": "पारंपरिक ज्ञान",
+ "Traditional medicine is marked classical, partly-classical, or not-classical — never blended.": "पारंपरिक चिकित्सा शास्त्रीय, अर्ध-शास्त्रीय या अशास्त्रीय अंकित है — कभी मिश्रित नहीं।",
+ "Two honest notes.": "दो ईमानदार टिप्पणियाँ।",
+ "Use only images you may use for": "केवल वे छवियाँ उपयोग करें जिन्हें आप उपयोग कर सकते हैं",
+ "Want more detail?": "अधिक विवरण चाहिए?",
+ "Want the complete opposite list?": "पूरी विपरीत सूची चाहिए?",
+ "Warming shifts flowering times, which can desynchronise flowers from their pollinators.": "गर्माहट पुष्पन काल बदल देती है, जिससे फूल और उनके परागणकर्ता असमकालिक हो सकते हैं।",
+ "What the literature actually shows — and, just as importantly, what it does not.": "साहित्य वास्तव में क्या दिखाता है — और उतना ही महत्वपूर्ण, क्या नहीं दिखाता।",
+ "What we promise": "हम क्या वचन देते हैं",
+ "What would it take to prove a benefit?": "लाभ सिद्ध करने के लिए क्या आवश्यक होगा?",
+ "Where a fact cannot be verified, we say so instead of guessing.": "जहाँ तथ्य सत्यापित नहीं हो सकता, हम अनुमान लगाने के बजाय स्पष्ट कहते हैं।",
+ "Where to find free flower photos (checked for commercial use)": "मुफ़्त फूल तस्वीरें कहाँ मिलें (व्यावसायिक उपयोग हेतु जाँची गई)",
+ "Why these twenty?": "ये बीस क्यों?",
+ "Why this section is minimal.": "यह अनुभाग संक्षिप्त क्यों है।",
+ "Wildflowers — Field List": "जंगली फूल — क्षेत्र सूची",
+ "Wildflowers listed for reference": "संदर्भ हेतु सूचीबद्ध जंगली फूल",
+ "Wildflowers with full profiles": "पूर्ण प्रोफ़ाइल वाले जंगली फूल",
+ "World of Flowers": "फूलों की दुनिया",
+ "Your collection is empty": "आपका संग्रह खाली है",
+ "Your garden journal": "आपकी बागवानी डायरी",
+ "Ayurvedic Flowers": "आयुर्वेदिक फूल",
+ "Species documented in Ayurvedic and related Indian traditional medical literature.": "आयुर्वेदिक और संबंधित भारतीय पारंपरिक चिकित्सा साहित्य में प्रलेखित प्रजातियाँ।",
+ "No Ayurvedic Link": "आयुर्वेद से संबंध नहीं",
+ "Species with no classical Ayurvedic standing — ornamental, temperate, foreign or New-World plants, grown for beauty, scent, food or ecology rather than tradition.": "जिनका कोई शास्त्रीय आयुर्वेदिक दर्जा नहीं — सजावटी, शीतोष्ण, विदेशी या नई दुनिया के पौधे, जो परंपरा की अपेक्षा सौंदर्य, सुगंध, भोजन या पारिस्थितिकी के लिए उगाए जाते हैं।",
+ "Medicinally Studied Flowers": "चिकित्सकीय रूप से अध्ययनित फूल",
+ "Species with notable laboratory, animal or clinical research literature.": "उल्लेखनीय प्रयोगशाला, पशु या नैदानिक शोध साहित्य वाली प्रजातियाँ।",
+ "Sacred & Spiritual Flowers": "पवित्र और आध्यात्मिक फूल",
+ "Flowers central to Indian religious and cultural traditions.": "भारतीय धार्मिक और सांस्कृतिक परंपराओं के केंद्रीय फूल।",
+ "Fragrant Flowers": "सुगंधित फूल",
+ "Species prized for scent and used in perfumery and garlands.": "सुगंध के लिए प्रतिष्ठित और इत्र तथा माला में प्रयुक्त प्रजातियाँ।",
+ "Edible Flowers": "खाद्य फूल",
+ "Species with documented food uses (use with care and correct identification).": "प्रलेखित खाद्य उपयोग वाली प्रजातियाँ (सावधानी और सही पहचान के साथ उपयोग करें)।",
+ "Ornamental Garden Flowers": "सजावटी उद्यान-पुष्प",
+ "Garden and landscape species grown for beauty.": "सौंदर्य के लिए उगाई जाने वाली उद्यान और परिदृश्य प्रजातियाँ।",
+ "Pollinator-Friendly Flowers": "परागणकर्ता-अनुकूल फूल",
+ "Species that support bees, butterflies, birds or moths.": "मधुमक्खियों, तितलियों, पक्षियों या पतंगों को सहारा देने वाली प्रजातियाँ।",
+ "Flowers of India": "भारत के फूल",
+ "Species native to, or long naturalised across, the Indian subcontinent.": "भारतीय उपमहाद्वीप की मूल या दीर्घकाल से प्राकृतिक प्रजातियाँ।",
+ "Wildflowers": "जंगली फूल",
+ "Species of meadows, scrub, hedgerows, roadsides and other wild ground.": "घास के मैदान, झाड़ियों, बाड़ों, सड़क किनारों और अन्य जंगली भूमि की प्रजातियाँ।",
+ "Tropical Flowers": "उष्णकटिबंधीय फूल",
+ "Species of warm, humid tropical climates.": "गर्म, आर्द्र उष्णकटिबंधीय जलवायु की प्रजातियाँ।",
+ "Night-Blooming Flowers": "रात्रि-पुष्पी फूल",
+ "Species whose flowers open, or are most fragrant, after dusk for nocturnal pollinators.": "जिनके फूल सांझ के बाद खिलते हैं, या सर्वाधिक सुगंधित होते हैं, निशाचर परागणकर्ताओं के लिए।",
+ "Himalayan Flowers": "हिमालयी फूल",
+ "Species of the Himalayan and high-altitude regions.": "हिमालयी और उच्च-ऊँचाई क्षेत्रों की प्रजातियाँ।",
+ "Desert Flowers": "मरुस्थलीय फूल",
+ "Species adapted to arid and semi-arid zones.": "शुष्क और अर्ध-शुष्क क्षेत्रों के अनुकूल प्रजातियाँ।",
+ "Aquatic Flowers": "जलीय फूल",
+ "Species that grow in and around water.": "जल में और जल के आसपास उगने वाली प्रजातियाँ।",
+ "Rare & Conservation-Significant": "दुर्लभ और संरक्षण-महत्वपूर्ण",
+ "Species whose wild populations or habitats warrant conservation attention.": "जिनकी जंगली आबादी या आवास संरक्षण योग्य हैं।",
+ "Toxic — Handle With Care": "विषैला — सावधानी से",
+ "Species with serious toxicity; included for education and safety.": "गंभीर विषाक्तता वाली प्रजातियाँ; शिक्षा और सुरक्षा हेतु सम्मिलित।",
+ "Red": "लाल",
+ "Pink": "गुलाबी",
+ "White": "सफ़ेद",
+ "Yellow": "पीला",
+ "Orange": "नारंगी",
+ "Purple": "बैंगनी",
+ "Blue": "नीला",
+ "Green": "हरा",
+ "Multicoloured": "बहुरंगी",
+ "Spring": "वसंत",
+ "Summer": "ग्रीष्म",
+ "Monsoon": "वर्षा",
+ "Autumn": "शरद",
+ "Winter": "शिशिर",
+ "India (general)": "भारत (सामान्य)",
+ "The Himalayas": "हिमालय",
+ "Western Ghats": "पश्चिमी घाट",
+ "Northeast India": "पूर्वोत्तर भारत",
+ "Indo-Gangetic Plains": "सिंधु-गंगा के मैदान",
+ "Deccan Plateau": "दक्कन का पठार",
+ "Thar Desert": "थार मरुस्थल",
+ "Coastal India": "तटीय भारत",
+ "Southeast Asia": "दक्षिण-पूर्व एशिया",
+ "East Asia": "पूर्वी एशिया",
+ "Africa": "अफ़्रीका",
+ "Europe": "यूरोप",
+ "Middle East": "मध्य पूर्व",
+ "The Americas": "अमेरिका",
+ "Australia": "ऑस्ट्रेलिया",
+ "How to Read an Ayurvedic Drug: Rasa, Guna, Virya and Vipaka": "आयुर्वेदिक औषध कैसे पढ़ें: रस, गुण, वीर्य और विपाक",
+ "A plain-language guide to the four classical parameters — and why 'not verified' is honest.": "चार शास्त्रीय मानकों की सरल भाषा में मार्गदर्शिका — और 'सत्यापित नहीं' क्यों ईमानदार है।",
+ "Ayurveda explainer": "आयुर्वेद व्याख्या",
+ "The Science Behind Flower Colour": "फूलों के रंग के पीछे का विज्ञान",
+ "Anthocyanins, carotenoids and betalains: why flowers are coloured, and what the colour signals to pollinators.": "एंथोसायनिन, कैरोटीनॉइड और बीटालेन: फूल रंगीन क्यों होते हैं, और रंग परागणकर्ताओं को क्या संकेत देता है।",
+ "Botany": "वनस्पति विज्ञान",
+ "Flowers That Feed the Bees": "मधुमक्खियों को पोषण देने वाले फूल",
+ "A practical, region-aware guide to planting pollinator-friendly flowers across Indian climates.": "भारतीय जलवायु में परागणकर्ता-अनुकूल फूल लगाने की व्यावहारिक, क्षेत्र-सजग मार्गदर्शिका।",
+ "Ecology": "पारिस्थितिकी",
+ "Sacred Flowers of Indian Traditions": "भारतीय परंपराओं के पवित्र फूल",
+ "Lotus, marigold, parijat and more — meanings that vary by region, festival and community.": "कमल, गेंदा, पारिजात और अधिक — अर्थ जो क्षेत्र, त्योहार और समुदाय के अनुसार बदलते हैं।",
+ "Culture": "संस्कृति",
+ "Reading a Botanical Name Without Fear": "वनस्पति नाम बिना डर पढ़ें",
+ "Genus, species, the '×' of hybrids and the authority that follows — decoded for beginners.": "जीनस, प्रजाति, संकरों का '×' और उसके बाद का प्राधिकारी नाम — शुरुआती लोगों के लिए सरल।",
+ "Rare Flowers of the Himalaya": "हिमालय के दुर्लभ फूल",
+ "Brahma Kamal, blue poppies and foxtail orchids — and why wild collection is a problem.": "ब्रह्म कमल, नीली पॉपी और लोमड़ी-पूँछ ऑर्किड — और जंगली संग्रहण क्यों समस्या है।",
+ "Conservation": "संरक्षण",
+ "Mexico": "मैक्सिको",
+ "Brazil": "ब्राज़ील",
+ "Madagascar": "मेडागास्कर",
+ "Test yourself across three difficulty levels — names, families, Sanskrit names, regions and ecology.": "तीन कठिनाई स्तरों पर स्वयं को परखें — नाम, कुल, संस्कृत नाम, क्षेत्र और पारिस्थितिकी।",
+ "Content marked \"needs verification\" is a placeholder for expert review — not an assertion.": "\"सत्यापन आवश्यक\" अंकित सामग्री विशेषज्ञ समीक्षा हेतु स्थानधारक है — कोई दावा नहीं।",
+ "Cultural meanings are presented as interpretation, not fact, and are not universal.": "सांस्कृतिक अर्थ व्याख्या के रूप में प्रस्तुत हैं, तथ्य के रूप में नहीं, और सार्वभौमिक नहीं हैं।",
+ "Do not use any plant described here to treat a medical condition based on this site.": "केवल इस साइट के आधार पर यहाँ वर्णित किसी पौधे का उपयोग रोग के उपचार के लिए न करें।",
+ "Edits made here are stored in this browser and apply immediately. To make them permanent in the file, click": "यहाँ किए बदलाव इस ब्राउज़र में संग्रहित होते हैं और तुरंत लागू होते हैं। इन्हें फ़ाइल में स्थायी बनाने के लिए क्लिक करें",
+ "Educational pieces across botany, Ayurveda, culture, ecology and gardening. Written to inform, not to sell.": "वनस्पति विज्ञान, आयुर्वेद, संस्कृति, पारिस्थितिकी और बागवानी पर शैक्षिक लेख। जानकारी देने हेतु लिखे गए, बेचने हेतु नहीं।",
+ "Effects in cells or dishes. Suggestive, not proof. A \"hit\" in a dish rarely survives into a human benefit.": "कोशिकाओं या पात्रों में प्रभाव। संकेतात्मक, प्रमाण नहीं। पात्र में मिली \"सफलता\" मानवी लाभ तक विरले ही पहुँचती है।",
+ "Floral motifs and mandala forms are carved into temple stone; fresh flowers are part of daily worship.": "मंदिर के पत्थर पर पुष्प-अलंकरण और मंडल आकार उत्कीर्ण हैं; ताज़े फूल दैनिक पूजा का अंग हैं।",
+ "Flowering periods vary by climate, altitude, hemisphere and cultivar. Use this as a guide, not a guarantee.": "पुष्पन काल जलवायु, ऊँचाई, गोलार्ध और किस्म के अनुसार बदलता है। इसे मार्गदर्शक मानें, गारंटी नहीं।",
+ "Flowers are used reverently in ritual; the lotus again carries symbolic weight across texts and art.": "अनुष्ठानों में फूल श्रद्धापूर्वक प्रयुक्त होते हैं; कमल पुनः ग्रंथों और कला में प्रतीकात्मक महत्व रखता है।",
+ "Many flowers — including several profiled here — are toxic. Ingestion can be dangerous or fatal.": "अनेक फूल — जिनमें यहाँ वर्णित कई भी हैं — विषैले हैं। सेवन खतरनाक या जानलेवा हो सकता है।",
+ "Never assume a plant is safe because it is natural, or because it resembles a familiar species.": "किसी पौधे को केवल इसलिए सुरक्षित न मानें कि वह प्राकृतिक है, या किसी परिचित प्रजाति जैसा दिखता है।",
+ "Pregnancy, breastfeeding, children, older adults and people on medication face added risks.": "गर्भावस्था, स्तनपान, बच्चे, वृद्धजन और दवा लेने वालों में अतिरिक्त जोखिम रहता है।",
+ "Tap the ☆ on any flower to bookmark it here. Notes and observations stay in your browser.": "यहाँ सहेजने के लिए किसी भी फूल पर ☆ दबाएँ। टिप्पणियाँ और अवलोकन आपके ब्राउज़र में रहते हैं।",
+ "The lotus is a central image of purity and awakening; offering flowers is a common practice of impermanence.": "कमल पवित्रता और जागृति का केंद्रीय प्रतीक है; फूल चढ़ाना अनित्यता का सामान्य अभ्यास है।",
+ "Traditional medicine is marked classical, partly-classical, or not-classical — never blurred.": "पारंपरिक चिकित्सा शास्त्रीय, अर्ध-शास्त्रीय या अशास्त्रीय अंकित है — कभी धुँधली नहीं।",
+ "A plain-language guide to the four classical parameters — and why 'not verified' is a legitimate entry.": "चार शास्त्रीय मानकों की सरल भाषा में मार्गदर्शिका — और 'सत्यापित नहीं' क्यों एक वैध प्रविष्टि है।",
+ "Photographs — commercial use, no attribution required": "तस्वीरें — व्यावसायिक उपयोग, श्रेय आवश्यक नहीं",
+ "Genus:": "जीनस:",
+ "Species:": "प्रजाति:"
+},
+  "mr": {
+ "Clear": "साफ करा",
+ "Credit": "श्रेय",
+ "Image URL or path": "प्रतिमा URL किंवा मार्ग",
+ "Licence": "परवाना",
+ "Save image": "प्रतिमा जतन करा",
+ "Upload a file": "फाइल अपलोड करा",
+ "Toxic": "विषारी",
+ "Full in-depth profile →": "संपूर्ण सविस्तर प्रोफाइल →",
+ "Home": "मुख्यपृष्ठ",
+ "In depth →": "सविस्तर →",
+ "Compare Flowers": "फुलांची तुलना करा",
+ "Editorial draft": "संपादकीय मसुदा",
+ "Flower Quiz": "फुलांची प्रश्नमंजुषा",
+ "Image Manager": "प्रतिमा व्यवस्थापक",
+ "My Collection": "माझा संग्रह",
+ "Read →": "वाचा →",
+ "Advanced Search": "प्रगत शोध",
+ "All": "सर्व",
+ "Bookmark flowers, add private notes, and export your observations.": "फुले जतन करा, वैयक्तिक टिप्पण्या जोडा आणि तुमची निरीक्षणे निर्यात करा.",
+ "Filter by name, colour, region, season, family, fragrance, Ayurvedic documentation and conservation status.": "नाव, रंग, प्रदेश, ऋतू, कुळ, सुगंध, आयुर्वेदिक नोंदी आणि संवर्धन स्थितीनुसार गाळा.",
+ "Flower Tools": "फूल साधने",
+ "Four ways to explore the encyclopedia actively.": "विश्वकोश सक्रियपणे शोधण्याचे चार मार्ग.",
+ "Interact": "सहभागी व्हा",
+ "Interactive Tools": "परस्परसंवादी साधने",
+ "Test yourself across three difficulty levels — names, families, Sanskrit names, regions and traditional uses.": "तीन अवघड पातळ्यांवर स्वतःला तपासा — नावे, कुळे, संस्कृत नावे, प्रदेश आणि पारंपरिक उपयोग.",
+ "Ayurveda": "आयुर्वेद",
+ "Any": "कोणतेही",
+ "Colour": "रंग",
+ "Family": "कुळ",
+ "Flower Encyclopedia": "फूल विश्वकोश",
+ "About": "आमच्याबद्दल",
+ "Common name": "सामान्य नाव",
+ "Educational content only.": "केवळ शैक्षणिक माहिती.",
+ "Encyclopedia": "विश्वकोश",
+ "Field note": "क्षेत्र नोंद",
+ "Flagship profiles": "प्रमुख प्रोफाइल",
+ "Flowering": "फुलोरा",
+ "Flowers in Ayurveda: Traditional Wisdom and Modern Understanding": "आयुर्वेदातील फुले: पारंपरिक ज्ञान आणि आधुनिक समज",
+ "Get code block": "कोड ब्लॉक मिळवा",
+ "Guna": "गुण",
+ "Medical & Editorial Disclaimer": "वैद्यकीय आणि संपादकीय अस्वीकरण",
+ "Rasa": "रस",
+ "References": "संदर्भ",
+ "Science & Research": "विज्ञान आणि संशोधन",
+ "Scientific name": "शास्त्रीय नाव",
+ "Top 20 Flowers — In Depth": "शीर्ष 20 फुले — सविस्तर",
+ "Vipaka": "विपाक",
+ "Virya": "वीर्य",
+ "Wikimedia Commons": "विकिमीडिया कॉमन्स",
+ "← Encyclopedia": "← विश्वकोश",
+ "⇄ Compare": "⇄ तुलना करा",
+ "★ In depth": "★ सविस्तर",
+ "☆ Add to collection": "☆ संग्रहात जोडा",
+ "1. Mix bloom times": "1. फुलांचे कालावधी मिसळा",
+ "2. Go native first": "2. आधी देशी प्रजाती निवडा",
+ "25 Flowers in Ayurveda": "आयुर्वेदातील 25 फुले",
+ "3. Avoid pesticides": "3. कीटकनाशके टाळा",
+ "4. Provide water & shelter": "4. पाणी आणि आसरा द्या",
+ "A first look at the encyclopedia": "विश्वकोशावर एक पहिली नजर",
+ "A note on the four parameters": "चार निकषांवर एक टिप्पणी",
+ "A shallow dish and undisturbed corners help.": "उथले तबक आणि अडवलेले कोपरे उपयुक्त ठरतात.",
+ "About Pushpa Veda": "पुष्पवेद विषयी",
+ "About the photographs already built in.": "आधीच समाविष्ट केलेल्या छायाचित्रांविषयी.",
+ "Articles": "लेख",
+ "Articles & explainers": "लेख आणि स्पष्टीकरणे",
+ "Articles & Explainers": "लेख आणि स्पष्टीकरणे",
+ "Ayurvedic link now has its own section:": "आयुर्वेदिक संबंधाला आता स्वतंत्र विभाग आहे:",
+ "Beautiful — and dangerous. Safety first.": "सुंदर — आणि धोकादायक. सुरक्षितता प्रथम.",
+ "Best for pollinators": "परागकणांसाठी सर्वोत्तम",
+ "Beware of the leap.": "मोठ्या दाव्यांपासून सावध राहा.",
+ "Botanical description": "वनस्पती वर्णन",
+ "Botanical fact": "वनस्पती तथ्य",
+ "Browse": "पाहा",
+ "Browse all 139 species →": "सर्व 139 प्रजाती पाहा →",
+ "Browse flowers": "फुले पाहा",
+ "Buddhist traditions": "बौद्ध परंपरा",
+ "Build a pollinator garden": "परागकण बाग तयार करा",
+ "Category": "श्रेणी",
+ "CC BY and CC BY-SA require credit": "CC BY आणि CC BY-SA साठी श्रेय आवश्यक",
+ "Choose species flowering in spring, summer, monsoon and autumn.": "वसंत, उन्हाळा, पावसाळा आणि शरद ऋतूत फुलणाऱ्या प्रजाती निवडा.",
+ "Classical context": "शास्त्रीय संदर्भ",
+ "Classical only": "केवळ शास्त्रीय",
+ "Clear filters": "गाळण्या साफ करा",
+ "Climate & flowering": "हवामान आणि फुलोरा",
+ "Colours are assigned from described flower colour. Select a colour to filter the encyclopedia.": "रंग वर्णन केलेल्या फुलांच्या रंगावर आधारित आहेत. विश्वकोश गाळण्यासाठी रंग निवडा.",
+ "Compare": "तुलना करा",
+ "Conservation status is shown only when attributable to a reliable authority.": "संवर्धन स्थिती केवळ विश्वासार्ह स्रोताशी जोडता येते तेव्हाच दर्शविली जाते.",
+ "Container gardening": "कुंडीत बागकाम",
+ "Content verification workflow": "माहिती पडताळणी प्रक्रिया",
+ "Cultural interpretation.": "सांस्कृतिक अर्थ.",
+ "Cultural meanings are presented as interpretation, not fact, and are not universal across communities.": "सांस्कृतिक अर्थ व्याख्या म्हणून मांडले आहेत, तथ्य म्हणून नाही, आणि सर्व समुदायांत एकसारखे नाहीत.",
+ "Cultural significance": "सांस्कृतिक महत्त्व",
+ "Culture & Heritage": "संस्कृती व वारसा",
+ "Culture & meaning": "संस्कृती आणि अर्थ",
+ "Did you know?": "तुम्हाला माहीत आहे का?",
+ "Disclaimer": "अस्वीकरण",
+ "Discover Ayurveda": "आयुर्वेद जाणून घ्या",
+ "Discover Flowers by Colour": "रंगानुसार फुले शोधा",
+ "Discover Flowers by Season": "ऋतूनुसार फुले शोधा",
+ "Do not use any plant described here to treat a medical condition based on this site alone.": "केवळ या संकेतस्थळाच्या आधारे येथे वर्णन केलेल्या कोणत्याही वनस्पतीचा वापर रोगोपचारासाठी करू नका.",
+ "Documented (classical or later)": "नोंदीत (शास्त्रीय किंवा नंतरचे)",
+ "Dosha": "दोष",
+ "Each profile states the plant part actually used, the classical parameters": "प्रत्येक प्रोफाइलमध्ये प्रत्यक्ष वापरलेला वनस्पतीचा भाग, शास्त्रीय निकष",
+ "Easy-to-grow species": "सहज वाढणाऱ्या प्रजाती",
+ "Ecology, Conservation & Biodiversity": "पर्यावरणशास्त्र, संवर्धन आणि जैवविविधता",
+ "Editorial": "संपादकीय",
+ "Editorial & medical policy": "संपादकीय आणि वैद्यकीय धोरण",
+ "Editorial policy": "संपादकीय धोरण",
+ "Editorial status.": "संपादकीय स्थिती.",
+ "Edits made here are stored in this browser and apply immediately.": "येथे केलेले बदल या ब्राउझरमध्ये साठवले जातात आणि लगेच लागू होतात.",
+ "Educational information only.": "केवळ शैक्षणिक माहिती.",
+ "Educational pieces across botany, Ayurveda, culture, ecology and gardening.": "वनस्पतीशास्त्र, आयुर्वेद, संस्कृती, पर्यावरणशास्त्र आणि बागकाम यांवरील शैक्षणिक लेख.",
+ "Educational use only.": "केवळ शैक्षणिक वापरासाठी.",
+ "Effects in animals. Closer, still not transferable to people without trials.": "प्राण्यांमधील परिणाम. अधिक जवळ, पण चाचण्यांशिवाय माणसांना लागू नाही.",
+ "Etymology": "व्युत्पत्ती",
+ "Even \"natural\" sprays can harm pollinators.": "\"नैसर्गिक\" फवारणेही परागकणांना हानी करू शकतात.",
+ "Every medical, botanical and safety claim carries a review status:": "प्रत्येक वैद्यकीय, वनस्पतीय आणि सुरक्षा दाव्याला पुनरावलोकन स्थिती असते:",
+ "Every species in the encyclopedia carries an Ayurveda tab marked": "विश्वकोशातील प्रत्येक प्रजातीवर आयुर्वेद टॅब आहे",
+ "Every species with": "प्रत्येक प्रजाती जिचा",
+ "Evidence": "पुरावा",
+ "Explore": "शोधा",
+ "Explore Flower Categories": "फुलांच्या श्रेणी शोधा",
+ "Explore Flowers": "फुले शोधा",
+ "Explore the Wonderful": "शोधा अद्भुत",
+ "Export image map (JSON)": "प्रतिमा नकाशा निर्यात करा (JSON)",
+ "Featured": "वैशिष्ट्यपूर्ण",
+ "Featured Learning Collections": "विशेष शिक्षण संग्रह",
+ "Festivals & weddings": "सण आणि विवाह",
+ "Field list": "क्षेत्र यादी",
+ "Flagship profile.": "प्रमुख प्रोफाइल.",
+ "Floral motifs and mandala forms are carved into temple stone; fresh flowers are offered daily.": "देवळाच्या दगडावर फुलांचे नक्षीकाम आणि मंडल आकार कोरलेले आहेत; रोज ताजी फुले वाहिली जातात.",
+ "Flower of the Day": "आजचे फूल",
+ "Flowering periods vary by climate, altitude, hemisphere and cultivar.": "फुलोरा हवामान, उंची, गोलार्ध आणि जातीवर अवलंबून बदलतो.",
+ "Flowering plants and the living networks that depend on them.": "फुलझाडे आणि त्यांवर अवलंबून असलेले जीवनजाळे.",
+ "Flowers are used reverently in ritual; the lotus again carries symbolic weight across traditions.": "विधींमध्ये फुले श्रद्धेने वापरली जातात; कमळ पुन्हा सर्व परंपरांत प्रतीकात्मक महत्त्व ठेवते.",
+ "Flowers Around the World": "जगभरातील फुले",
+ "Flowers central to Indian traditions": "भारतीय परंपरांतील केंद्रीय फुले",
+ "Flowers central to worship, festivals and ritual.": "पूजा, सण आणि विधींतील केंद्रीय फुले.",
+ "Flowers in Indian Culture & Spiritual Traditions": "भारतीय संस्कृती आणि आध्यात्मिक परंपरांमधील फुले",
+ "Flowers That Feed Pollinators": "परागकणांना आधार देणारी फुले",
+ "Flowers with No Ayurvedic Link": "आयुर्वेदाशी संबंध नसलेली फुले",
+ "Formulations": "योग",
+ "Fragrant": "सुगंधी",
+ "Fragrant Flowers & Essential Oils": "सुगंधी फुले आणि सुगंधी तेले",
+ "Fragrant only": "केवळ सुगंधी",
+ "Gardening": "बागकाम",
+ "Gardening (expanded)": "बागकाम (सविस्तर)",
+ "Gardening Guides": "बागकाम मार्गदर्शिका",
+ "Geography": "भूगोल",
+ "Grow": "वाढवा",
+ "Grow from cultivated or nursery stock; never collect rare species from the wild.": "लागवड केलेल्या किंवा नर्सरीतील प्रजाती वापरा; दुर्मीळ प्रजाती कधीही जंगलातून घेऊ नका.",
+ "Growing": "वाढ",
+ "Growth stages": "वाढीच्या अवस्था",
+ "Habitat loss": "अधिवासाची हानी",
+ "Handle With Care: Toxic Flowers": "काळजीपूर्वक: विषारी फुले",
+ "Hard": "कठीण",
+ "Harvest flowers sparingly, leave seed to set, and avoid protected species entirely.": "फुले संयमाने गोळा करा, बीज तयार होऊ द्या आणि संरक्षित प्रजाती पूर्णपणे टाळा.",
+ "Heritage": "वारसा",
+ "Hindu traditions": "हिंदू परंपरा",
+ "Historic botanical illustrations — public domain": "ऐतिहासिक वनस्पती चित्रे — सार्वजनिक क्षेत्र",
+ "How changes are saved.": "बदल कसे जतन होतात.",
+ "How this section is defined.": "हा विभाग कसा ठरवला आहे.",
+ "How to read this section.": "हा विभाग कसा वाचावा.",
+ "How to tell it apart": "याची ओळख कशी करावी",
+ "Human clinical trials": "मानवी क्लिनिकल चाचण्या",
+ "Identification": "ओळख",
+ "Identifying the compounds a plant makes — the starting point, never the conclusion.": "वनस्पतीत तयार होणाऱ्या संयुगांची ओळख — प्रारंभबिंदू, कधीही निष्कर्ष नाही.",
+ "Import JSON": "JSON आयात करा",
+ "Important": "महत्त्वाचे",
+ "Laboratory studies": "प्रयोगशाळा अभ्यास",
+ "Licensing — please read.": "परवाना — कृपया वाचा.",
+ "Local species support more local pollinators.": "स्थानिक प्रजाती अधिक स्थानिक परागकणांना आधार देतात.",
+ "Looking for the opposite list?": "उलटी यादी हवी आहे?",
+ "Manage photo": "छायाचित्र व्यवस्थापित करा",
+ "Many flowers — including several profiled here — are toxic. Ingestion can be dangerous.": "अनेक फुले — येथे वर्णन केलेल्या काहींसह — विषारी आहेत. सेवन धोकादायक ठरू शकते.",
+ "Media": "माध्यमे",
+ "Medical disclaimer": "वैद्यकीय अस्वीकरण",
+ "Medical disclaimer.": "वैद्यकीय अस्वीकरण.",
+ "Medium": "मध्यम",
+ "Most-studied species": "सर्वाधिक अभ्यासलेल्या प्रजाती",
+ "Native region": "मूळ प्रदेश",
+ "Native vs invasive": "देशी विरुद्ध आक्रमक",
+ "Nature & Conservation": "निसर्ग व संवर्धन",
+ "Nectar and pollen plants for bees, butterflies and birds.": "मधमाश्या, फुलपाखरे आणि पक्ष्यांसाठी रस आणि पराग देणारी वनस्पती.",
+ "Never assume a plant is safe because it is natural, or because it resembles a familiar one.": "वनस्पती केवळ नैसर्गिक आहे म्हणून किंवा परिचित वनस्पतीसारखी दिसते म्हणून सुरक्षित मानू नका.",
+ "New-World plants — no classical claim is even possible": "नव्या जगातील वनस्पती — शास्त्रीय दावा शक्यच नाही",
+ "No fake citations, invented papers or fabricated Sanskrit names are permitted.": "कोणतेही बनावट उद्धरण, काल्पनिक शोधनिबंध किंवा खोटी संस्कृत नावे मान्य नाहीत.",
+ "On conservation status.": "संवर्धन स्थितीवर.",
+ "On the \"listed\" entries.": "\"यादीत\" असलेल्या नोंदींवर.",
+ "Open full profile →": "संपूर्ण प्रोफाइल उघडा →",
+ "Other ornamentals, orchids and tropical shrubs": "इतर शोभेची झाडे, ऑर्किड आणि उष्णकटिबंधीय झुडपे",
+ "Our evidence ladder.": "आमची पुरावा-श्रेणी.",
+ "Outside the tradition": "परंपरेबाहेर",
+ "Overview": "आढावा",
+ "Part used": "वापरलेला भाग",
+ "Pick two or three flowers": "दोन किंवा तीन फुले निवडा",
+ "Pollination": "परागकण",
+ "Pollinator-friendly planting": "परागकण-अनुकूल लागवड",
+ "Post-digestive effect.": "पचनोत्तर परिणाम.",
+ "Potency — broadly heating or cooling.": "वीर्य — स्थूलपणे उष्ण किंवा शीत.",
+ "Pregnancy, breastfeeding, children, older adults and people on medication face additional risk.": "गर्भारपण, स्तनपान, मुले, वृद्ध आणि औषध घेणाऱ्यांना अतिरिक्त धोका असतो.",
+ "Pushpa Veda": "पुष्पवेद",
+ "Qualities — e.g. heavy/light, unctuous/dry.": "गुण — उदा. जड/हलके, स्निग्ध/रूक्ष.",
+ "Quiz": "प्रश्नमंजुषा",
+ "Rare Flowers of India": "भारतातील दुर्मीळ फुले",
+ "Read the Medical & Editorial Disclaimer →": "वैद्यकीय आणि संपादकीय अस्वीकरण वाचा →",
+ "Recently Published": "अलीकडे प्रकाशित",
+ "Region": "प्रदेश",
+ "Regional traditions": "प्रादेशिक परंपरा",
+ "Regional variation": "प्रादेशिक भिन्नता",
+ "Research": "संशोधन",
+ "Research (expanded)": "संशोधन (सविस्तर)",
+ "Research is labelled by study type; laboratory findings are never called cures.": "संशोधन अभ्यास-प्रकारानुसार नोंदवले जाते; प्रयोगशाळेतील निष्कर्षांना कधीही उपचार म्हटले जात नाही.",
+ "Respect the toxic ones": "विषारींचा आदर करा",
+ "Responsible harvesting": "जबाबदार संकलन",
+ "Safety": "सुरक्षितता",
+ "Safety (expanded)": "सुरक्षितता (सविस्तर)",
+ "Safety is treated as a first-class feature, not a footnote.": "सुरक्षितता ही पादटिप्पणी नाही, प्रमुख वैशिष्ट्य मानली आहे.",
+ "Search": "शोधा",
+ "Season": "ऋतू",
+ "Seasonal calendar.": "ऋतू दिनदर्शिका.",
+ "Seasonality": "ऋतुमान",
+ "See": "पाहा",
+ "See all 20 →": "सर्व 20 पाहा →",
+ "Seek emergency care immediately if someone may have eaten a toxic plant.": "कोणी विषारी वनस्पती खाल्ली असेल तर तात्काळ आपत्कालीन मदत घ्या.",
+ "Select species below to build a comparison table.": "तुलना तक्ता तयार करण्यासाठी खालील प्रजाती निवडा.",
+ "Selected profiles": "निवडलेली प्रोफाइल",
+ "Sensitive species": "संवेदनशील प्रजाती",
+ "Showing all matching species": "जुळणाऱ्या सर्व प्रजाती दाखवत आहे",
+ "Species documented in Indian traditional medical literature.": "भारतीय पारंपरिक वैद्यकीय साहित्यात नोंदीत प्रजाती.",
+ "Species needing conservation attention": "संवर्धनाची गरज असलेल्या प्रजाती",
+ "Species often discussed in wellness contexts but": "आरोग्यसंदर्भात चर्चा होणाऱ्या पण",
+ "Species prized for scent and perfume.": "सुगंध आणि अत्तरासाठी प्रसिद्ध प्रजाती.",
+ "Species whose wild populations need protection.": "ज्यांच्या जंगली लोकसंख्येला संरक्षण हवे.",
+ "Species with a classical Ayurvedic identity": "शास्त्रीय आयुर्वेदिक ओळख असलेल्या प्रजाती",
+ "Species-identified photos — check the licence (attribution may be required)": "प्रजाती-ओळखीची छायाचित्रे — परवाना तपासा (श्रेय आवश्यक असू शकते)",
+ "Still not medical advice.": "तरीही वैद्यकीय सल्ला नाही.",
+ "Sustainable cultivation": "शाश्वत लागवड",
+ "Tap the ☆ on any flower to bookmark it here.": "येथे जतन करण्यासाठी कोणत्याही फुलावर ☆ दाबा.",
+ "Taste — the immediate sensory quality of the drug.": "रस — औषधाचा तात्कालिक इंद्रियगुण.",
+ "Taxonomy follows accepted scientific names, not invented ones.": "वर्गीकरण मान्य शास्त्रीय नावांचे अनुसरण करते, बनावट नावांचे नाही.",
+ "Taxonomy notes": "वर्गीकरण नोंदी",
+ "Technology": "तंत्रज्ञान",
+ "Temperate, Mediterranean and East Asian garden flowers": "शीतोष्ण, भूमध्य आणि पूर्व आशियाई बागेतील फुले",
+ "Temple architecture & ritual": "देवालय स्थापत्य आणि विधी",
+ "The lotus is a central image of purity and awakening; offering flowers is a common act of devotion.": "कमळ पवित्रता आणि जागृतीचे केंद्रीय प्रतीक आहे; फुले वाहणे भक्तीचे सामान्य कर्म आहे.",
+ "Three cautions.": "तीन सूचना.",
+ "Top 20 In Depth": "शीर्ष 20 सविस्तर",
+ "Traditional actions (karma)": "पारंपरिक कर्मे",
+ "Traditional and scientific claims are held to different, clearly-labelled standards.": "पारंपरिक आणि वैज्ञानिक दाव्यांसाठी वेगवेगळे, स्पष्टपणे नोंदवलेले निकष आहेत.",
+ "Traditional Ayurvedic profile (expanded)": "पारंपरिक आयुर्वेदिक प्रोफाइल (सविस्तर)",
+ "Traditional knowledge": "पारंपरिक ज्ञान",
+ "Traditional medicine is marked classical, partly-classical, or not-classical — never blended.": "पारंपरिक वैद्यक शास्त्रीय, अर्ध-शास्त्रीय किंवा अशास्त्रीय नोंदवले जाते — कधीही मिसळले जात नाही.",
+ "Two honest notes.": "दोन प्रामाणिक नोंदी.",
+ "Use only images you may use for": "केवळ अशीच छायाचित्रे वापरा जी तुम्ही वापरू शकता",
+ "Want more detail?": "अधिक तपशील हवा?",
+ "Want the complete opposite list?": "पूर्ण उलटी यादी हवी आहे?",
+ "Warming shifts flowering times, which can desynchronise flowers from their pollinators.": "उष्णता फुलोरा बदलते, ज्यामुळे फुले आणि त्यांचे परागकण विसंगत होऊ शकतात.",
+ "What the literature actually shows — and, just as importantly, what it does not.": "साहित्य प्रत्यक्षात काय दाखवते — आणि तितकेच महत्त्वाचे, काय दाखवत नाही.",
+ "What we promise": "आम्ही काय वचन देतो",
+ "What would it take to prove a benefit?": "फायदा सिद्ध करण्यासाठी काय लागेल?",
+ "Where a fact cannot be verified, we say so instead of guessing.": "जिथे तथ्य पडताळता येत नाही, तिथे आम्ही अंदाज न लावता स्पष्ट सांगतो.",
+ "Where to find free flower photos (checked for commercial use)": "मोफत फुलांची छायाचित्रे कुठे मिळतील (व्यावसायिक वापरासाठी तपासलेली)",
+ "Why these twenty?": "ही वीस का?",
+ "Why this section is minimal.": "हा विभाग संक्षिप्त का आहे.",
+ "Wildflowers — Field List": "जंगली फुले — क्षेत्र यादी",
+ "Wildflowers listed for reference": "संदर्भासाठी यादीत असलेली जंगली फुले",
+ "Wildflowers with full profiles": "संपूर्ण प्रोफाइल असलेली जंगली फुले",
+ "World of Flowers": "फुलांचे जग",
+ "Your collection is empty": "तुमचा संग्रह रिकामा आहे",
+ "Your garden journal": "तुमची बागकाम नोंदवही",
+ "Ayurvedic Flowers": "आयुर्वेदिक फुले",
+ "Species documented in Ayurvedic and related Indian traditional medical literature.": "आयुर्वेदिक आणि संबंधित भारतीय पारंपरिक वैद्यकीय साहित्यात नोंदीत प्रजाती.",
+ "No Ayurvedic Link": "आयुर्वेदाशी संबंध नाही",
+ "Species with no classical Ayurvedic standing — ornamental, temperate, foreign or New-World plants, grown for beauty, scent, food or ecology rather than tradition.": "ज्यांना शास्त्रीय आयुर्वेदिक दर्जा नाही — शोभेची, शीतोष्ण, परदेशी किंवा नव्या जगातील वनस्पती, जी परंपरेपेक्षा सौंदर्य, सुगंध, अन्न किंवा पर्यावरणासाठी वाढवली जाते.",
+ "Medicinally Studied Flowers": "वैद्यकीयदृष्ट्या अभ्यासलेली फुले",
+ "Species with notable laboratory, animal or clinical research literature.": "उल्लेखनीय प्रयोगशाळा, प्राणी किंवा क्लिनिकल संशोधन साहित्य असलेल्या प्रजाती.",
+ "Sacred & Spiritual Flowers": "पवित्र आणि आध्यात्मिक फुले",
+ "Flowers central to Indian religious and cultural traditions.": "भारतीय धार्मिक आणि सांस्कृतिक परंपरांतील केंद्रीय फुले.",
+ "Fragrant Flowers": "सुगंधी फुले",
+ "Species prized for scent and used in perfumery and garlands.": "सुगंधासाठी प्रसिद्ध आणि अत्तर व माळांमध्ये वापरल्या जाणाऱ्या प्रजाती.",
+ "Edible Flowers": "खाद्य फुले",
+ "Species with documented food uses (use with care and correct identification).": "नोंदीत अन्न-उपयोग असलेल्या प्रजाती (काळजीपूर्वक आणि योग्य ओळखीनंतर वापरा).",
+ "Ornamental Garden Flowers": "शोभेची बागेतील फुले",
+ "Garden and landscape species grown for beauty.": "सौंदर्यासाठी वाढवल्या जाणाऱ्या बाग आणि परिसरातील प्रजाती.",
+ "Pollinator-Friendly Flowers": "परागकण-अनुकूल फुले",
+ "Species that support bees, butterflies, birds or moths.": "मधमाश्या, फुलपाखरे, पक्षी किंवा पतंगांना आधार देणाऱ्या प्रजाती.",
+ "Flowers of India": "भारतातील फुले",
+ "Species native to, or long naturalised across, the Indian subcontinent.": "भारतीय उपखंडातील मूळ किंवा दीर्घकाळ रुजलेल्या प्रजाती.",
+ "Wildflowers": "जंगली फुले",
+ "Species of meadows, scrub, hedgerows, roadsides and other wild ground.": "गवताळ मैदाने, झुडपे, कुंपणे, रस्त्याकडे आणि इतर जंगली जमिनीतील प्रजाती.",
+ "Tropical Flowers": "उष्णकटिबंधीय फुले",
+ "Species of warm, humid tropical climates.": "उबदार, दमट उष्णकटिबंधीय हवामानातील प्रजाती.",
+ "Night-Blooming Flowers": "रात्री-फुलणारी फुले",
+ "Species whose flowers open, or are most fragrant, after dusk for nocturnal pollinators.": "ज्यांची फुले संध्याकाळनंतर उमलतात किंवा सर्वाधिक सुगंधी होतात, निशाचर परागकणांसाठी.",
+ "Himalayan Flowers": "हिमालयीन फुले",
+ "Species of the Himalayan and high-altitude regions.": "हिमालयीन आणि उच्च-उंचीच्या प्रदेशांतील प्रजाती.",
+ "Desert Flowers": "वाळवंटी फुले",
+ "Species adapted to arid and semi-arid zones.": "कोरड्या आणि अर्ध-कोरड्या प्रदेशांशी जुळवून घेतलेल्या प्रजाती.",
+ "Aquatic Flowers": "जलीय फुले",
+ "Species that grow in and around water.": "पाण्यात आणि पाण्याजवळ वाढणाऱ्या प्रजाती.",
+ "Rare & Conservation-Significant": "दुर्मीळ आणि संवर्धन-महत्त्वाची",
+ "Species whose wild populations or habitats warrant conservation attention.": "ज्यांची जंगली लोकसंख्या किंवा अधिवास संवर्धनार्ह आहे.",
+ "Toxic — Handle With Care": "विषारी — काळजीपूर्वक",
+ "Species with serious toxicity; included for education and safety.": "गंभीर विषारीपणा असलेल्या प्रजाती; शिक्षण आणि सुरक्षिततेसाठी समाविष्ट.",
+ "Red": "लाल",
+ "Pink": "गुलाबी",
+ "White": "पांढरा",
+ "Yellow": "पिवळा",
+ "Orange": "नारंगी",
+ "Purple": "जांभळा",
+ "Blue": "निळा",
+ "Green": "हिरवा",
+ "Multicoloured": "बहुरंगी",
+ "Spring": "वसंत",
+ "Summer": "उन्हाळा",
+ "Monsoon": "पावसाळा",
+ "Autumn": "शरद",
+ "Winter": "हिवाळा",
+ "India (general)": "भारत (सर्वसाधारण)",
+ "The Himalayas": "हिमालय",
+ "Western Ghats": "पश्चिम घाट",
+ "Northeast India": "ईशान्य भारत",
+ "Indo-Gangetic Plains": "सिंधू-गंगा मैदाने",
+ "Deccan Plateau": "दख्खनचे पठार",
+ "Thar Desert": "थर वाळवंट",
+ "Coastal India": "किनारी भारत",
+ "Southeast Asia": "आग्नेय आशिया",
+ "East Asia": "पूर्व आशिया",
+ "Africa": "आफ्रिका",
+ "Europe": "युरोप",
+ "Middle East": "मध्य पूर्व",
+ "The Americas": "अमेरिका",
+ "Australia": "ऑस्ट्रेलिया",
+ "How to Read an Ayurvedic Drug: Rasa, Guna, Virya and Vipaka": "आयुर्वेदिक औषध कसे वाचावे: रस, गुण, वीर्य आणि विपाक",
+ "A plain-language guide to the four classical parameters — and why 'not verified' is honest.": "चार शास्त्रीय निकषांची सोप्या भाषेतील मार्गदर्शिका — आणि 'पडताळलेले नाही' का प्रामाणिक आहे.",
+ "Ayurveda explainer": "आयुर्वेद स्पष्टीकरण",
+ "The Science Behind Flower Colour": "फुलांच्या रंगामागील विज्ञान",
+ "Anthocyanins, carotenoids and betalains: why flowers are coloured, and what the colour signals to pollinators.": "अँथोसायनिन, कॅरोटीनॉइड्स आणि बीटालेन्स: फुले रंगीत का असतात, आणि रंग परागकणांना काय संकेत देतो.",
+ "Botany": "वनस्पतीशास्त्र",
+ "Flowers That Feed the Bees": "मधमाश्यांना आधार देणारी फुले",
+ "A practical, region-aware guide to planting pollinator-friendly flowers across Indian climates.": "भारतीय हवामानात परागकण-अनुकूल फुले लावण्याची व्यावहारिक, प्रदेश-जागरूक मार्गदर्शिका.",
+ "Ecology": "पर्यावरणशास्त्र",
+ "Sacred Flowers of Indian Traditions": "भारतीय परंपरांतील पवित्र फुले",
+ "Lotus, marigold, parijat and more — meanings that vary by region, festival and community.": "कमळ, झेंडू, पारिजात आणि अधिक — अर्थ जे प्रदेश, सण आणि समुदायानुसार बदलतात.",
+ "Culture": "संस्कृती",
+ "Reading a Botanical Name Without Fear": "वनस्पतीचे नाव भीतीशिवाय वाचा",
+ "Genus, species, the '×' of hybrids and the authority that follows — decoded for beginners.": "जीनस, प्रजाती, संकरांचे '×' आणि त्यानंतरचे अधिकारी नाव — नवशिक्यांसाठी सोपे.",
+ "Rare Flowers of the Himalaya": "हिमालयातील दुर्मीळ फुले",
+ "Brahma Kamal, blue poppies and foxtail orchids — and why wild collection is a problem.": "ब्रह्म कमळ, निळी पॉपी आणि कोल्ह्याच्या शेपटीसारखे ऑर्किड — आणि जंगली संकलन का समस्या आहे.",
+ "Conservation": "संवर्धन",
+ "Mexico": "मेक्सिको",
+ "Brazil": "ब्राझील",
+ "Madagascar": "मादागास्कर",
+ "Test yourself across three difficulty levels — names, families, Sanskrit names, regions and ecology.": "तीन अवघड पातळ्यांवर स्वतःला तपासा — नावे, कुळे, संस्कृत नावे, प्रदेश आणि पर्यावरणशास्त्र.",
+ "Content marked \"needs verification\" is a placeholder for expert review — not an assertion.": "\"पडताळणी आवश्यक\" अशी नोंदवलेली माहिती तज्ज्ञ पुनरावलोकनासाठी जागाधारक आहे — दावा नाही.",
+ "Cultural meanings are presented as interpretation, not fact, and are not universal.": "सांस्कृतिक अर्थ व्याख्या म्हणून मांडले आहेत, तथ्य म्हणून नाही, आणि सार्वत्रिक नाहीत.",
+ "Do not use any plant described here to treat a medical condition based on this site.": "केवळ या संकेतस्थळाच्या आधारे येथे वर्णन केलेल्या वनस्पतीचा वापर रोगोपचारासाठी करू नका.",
+ "Edits made here are stored in this browser and apply immediately. To make them permanent in the file, click": "येथे केलेले बदल या ब्राउझरमध्ये साठवले जातात आणि लगेच लागू होतात. ते फाइलमध्ये कायम करण्यासाठी क्लिक करा",
+ "Educational pieces across botany, Ayurveda, culture, ecology and gardening. Written to inform, not to sell.": "वनस्पतीशास्त्र, आयुर्वेद, संस्कृती, पर्यावरणशास्त्र आणि बागकाम यांवरील शैक्षणिक लेख. माहिती देण्यासाठी लिहिलेले, विकण्यासाठी नाही.",
+ "Effects in cells or dishes. Suggestive, not proof. A \"hit\" in a dish rarely survives into a human benefit.": "पेशी किंवा तबकांमधील परिणाम. संकेतात्मक, पुरावा नाही. तबकातील \"यश\" मानवी फायद्यापर्यंत क्वचितच पोहोचते.",
+ "Floral motifs and mandala forms are carved into temple stone; fresh flowers are part of daily worship.": "देवळाच्या दगडावर फुलांचे नक्षीकाम आणि मंडल आकार कोरलेले आहेत; ताजी फुले दैनिक पूजेचा भाग आहेत.",
+ "Flowering periods vary by climate, altitude, hemisphere and cultivar. Use this as a guide, not a guarantee.": "फुलोरा हवामान, उंची, गोलार्ध आणि जातीवर अवलंबून बदलतो. हे मार्गदर्शक माना, हमी नाही.",
+ "Flowers are used reverently in ritual; the lotus again carries symbolic weight across texts and art.": "विधींमध्ये फुले श्रद्धेने वापरली जातात; कमळ पुन्हा ग्रंथ आणि कलेत प्रतीकात्मक महत्त्व ठेवते.",
+ "Many flowers — including several profiled here — are toxic. Ingestion can be dangerous or fatal.": "अनेक फुले — येथे वर्णन केलेल्यांसह — विषारी आहेत. सेवन धोकादायक किंवा प्राणघातक ठरू शकते.",
+ "Never assume a plant is safe because it is natural, or because it resembles a familiar species.": "वनस्पती केवळ नैसर्गिक आहे म्हणून किंवा परिचित प्रजातीसारखी दिसते म्हणून सुरक्षित मानू नका.",
+ "Pregnancy, breastfeeding, children, older adults and people on medication face added risks.": "गर्भारपण, स्तनपान, मुले, वृद्ध आणि औषध घेणाऱ्यांना अतिरिक्त धोका असतो.",
+ "Tap the ☆ on any flower to bookmark it here. Notes and observations stay in your browser.": "येथे जतन करण्यासाठी कोणत्याही फुलावर ☆ दाबा. टिप्पण्या आणि निरीक्षणे तुमच्या ब्राउझरमध्ये राहतात.",
+ "The lotus is a central image of purity and awakening; offering flowers is a common practice of impermanence.": "कमळ पवित्रता आणि जागृतीचे केंद्रीय प्रतीक आहे; फुले वाहणे अनित्यतेची सामान्य प्रथा आहे.",
+ "Traditional medicine is marked classical, partly-classical, or not-classical — never blurred.": "पारंपरिक वैद्य शास्त्रीय, अर्ध-शास्त्रीय किंवा अशास्त्रीय नोंदवले जाते — कधीही अस्पष्ट नाही.",
+ "A plain-language guide to the four classical parameters — and why 'not verified' is a legitimate entry.": "चार शास्त्रीय निकषांची सोप्या भाषेतील मार्गदर्शिका — आणि 'पडताळलेले नाही' का वैध नोंद आहे.",
+ "Photographs — commercial use, no attribution required": "छायाचित्रे — व्यावसायिक वापर, श्रेय आवश्यक नाही",
+ "Genus:": "जीनस:",
+ "Species:": "प्रजाती:"
+}
+};
+
+/* Variable strings (counts, dates, names) handled by pattern. */
+const I18N_PATTERNS = {
+  "hi": [
+ [
+  "^— (\\d+) species · full profiles pending$",
+  "— $1 प्रजातियाँ · पूर्ण प्रोफ़ाइल शेष"
+ ],
+ [
+  "^Flowers with No Ayurvedic Link \\((\\d+) species\\) →$",
+  "आयुर्वेद से असंबद्ध फूल ($1 प्रजातियाँ) →"
+ ],
+ [
+  "^— (\\d+) species$",
+  "— $1 प्रजातियाँ"
+ ],
+ [
+  "^(\\d+) of (\\d+) shown$",
+  "$2 में से $1 दिखाए गए"
+ ],
+ [
+  "^Selected: (\\d+) of (\\d+)\\.$",
+  "चयनित: $2 में से $1।"
+ ],
+ [
+  "^Question (\\d+) of (\\d+)$",
+  "प्रश्न $1 / $2"
+ ],
+ [
+  "^Score (\\d+)$",
+  "अंक $1"
+ ],
+ [
+  "^Flower of the Day · (.+)$",
+  "आज का फूल · $1"
+ ],
+ [
+  "^(\\d+) min read$",
+  "$1 मिनट पठन"
+ ],
+ [
+  "^(\\d+) results$",
+  "$1 परिणाम"
+ ],
+ [
+  "^(\\d+) species$",
+  "$1 प्रजातियाँ"
+ ],
+ [
+  "^Family: (.+)$",
+  "कुल: $1"
+ ],
+ [
+  "^Genus: (.+)$",
+  "जीनस: $1"
+ ],
+ [
+  "^Species: (.+)$",
+  "प्रजाति: $1"
+ ],
+ [
+  "^In depth: (.+)$",
+  "विस्तार से: $1"
+ ],
+ [
+  "^Photo: (.+)$",
+  "फ़ोटो: $1"
+ ],
+ [
+  "^Read the full profile →$",
+  "पूरी प्रोफ़ाइल पढ़ें →"
+ ]
+],
+  "mr": [
+ [
+  "^— (\\d+) species · full profiles pending$",
+  "— $1 प्रजाती · संपूर्ण प्रोफाइल प्रलंबित"
+ ],
+ [
+  "^Flowers with No Ayurvedic Link \\((\\d+) species\\) →$",
+  "आयुर्वेदाशी संबंध नसलेली फुले ($1 प्रजाती) →"
+ ],
+ [
+  "^— (\\d+) species$",
+  "— $1 प्रजाती"
+ ],
+ [
+  "^(\\d+) of (\\d+) shown$",
+  "$2 पैकी $1 दाखवले"
+ ],
+ [
+  "^Selected: (\\d+) of (\\d+)\\.$",
+  "निवडले: $2 पैकी $1."
+ ],
+ [
+  "^Question (\\d+) of (\\d+)$",
+  "प्रश्न $1 / $2"
+ ],
+ [
+  "^Score (\\d+)$",
+  "गुण $1"
+ ],
+ [
+  "^Flower of the Day · (.+)$",
+  "आजचे फूल · $1"
+ ],
+ [
+  "^(\\d+) min read$",
+  "$1 मिनिटे वाचन"
+ ],
+ [
+  "^(\\d+) results$",
+  "$1 निकाल"
+ ],
+ [
+  "^(\\d+) species$",
+  "$1 प्रजाती"
+ ],
+ [
+  "^Family: (.+)$",
+  "कुळ: $1"
+ ],
+ [
+  "^Genus: (.+)$",
+  "जीनस: $1"
+ ],
+ [
+  "^Species: (.+)$",
+  "प्रजाती: $1"
+ ],
+ [
+  "^In depth: (.+)$",
+  "सविस्तर: $1"
+ ],
+ [
+  "^Photo: (.+)$",
+  "छायाचित्र: $1"
+ ],
+ [
+  "^Read the full profile →$",
+  "संपूर्ण प्रोफाइल वाचा →"
+ ]
+]
+};
+
+
+/* Species names, taken from the dataset's own Hindi / Marathi / Sanskrit fields. */
+Object.assign(I18N.hi, {"Sacred Lotus":"कमल","Blue Water Lily":"नील कमल","Hibiscus":"गुड़हल","Arabian Jasmine":"मोगरा","Common Jasmine":"चमेली","Damask Rose":"गुलाब","African Marigold":"गेंदा","Dhataki / Dhaiphul":"धव / धायफूल","Nagkesar / Ironwood":"नागकेसर","Ashoka":"अशोक","Butterfly Pea / Shankhapushpi":"अपराजिता / शंखपुष्पी","Parijat / Night-Flowering Jasmine":"हरसिंगार / पारिजात","Bakul / Bulletwood":"बकुल / मौलसरी","Pomegranate":"अनार","Palash / Flame of the Forest":"पलाश / टेसू","Golden Shower / Amaltas":"अमलतास","Champak / Golden Champa":"चंपा","Frangipani / Temple Flower":"चंपा","Oleander / Kaner":"कनेर","Madagascar Periwinkle / Sadabahar":"सदाबहार","Peacock Flower / Pride of Barbados":"कृष्णचूड़ा / गुलेतूरा","Gulmohar / Royal Poinciana":"गुलमोहर","Kachnar / Orchid Tree":"कचनार","Burans / Tree Rhododendron":"बुरांश","Brahma Kamal":"ब्रह्म कमल","Rohida / Desert Teak":"रोहिड़ा","Jungle Geranium / Flame of the Woods":"रुक्मिणी","Bougainvillea":"बोगनवेलिया","Saffron Crocus":"केसर / कुमकुम","Sunflower":"सूरजमुखी","Glory Lily / Flame Lily":"कलिहारी / लांगली","Hindu Datura / Devil's Trumpet":"धतूरा","Chrysanthemum":"गुलदाउदी","Dahlia":"डाहलिया","Carnation":"कार्नेशन","Madonna Lily":"लिली / कुमुदिनी","Tulip":"ट्यूलिप","Narcissus / Nargis":"नरगिस","Tuberose / Rajnigandha":"रजनीगंधा","Gladiolus":"ग्लेडियोलस","Gerbera / Transvaal Daisy":"जरबेरा","Zinnia":"ज़िनिया","Cosmos":"कॉसमॉस","Petunia":"पिटुनिया","Pansy":"पैंसी","Snapdragon":"स्नैपड्रैगन","Nasturtium":"नैस्टर्शियम","Sweet Pea":"स्वीट पी","Geranium / Pelargonium":"जेरेनियम","Scarlet Sage / Salvia":"सेल्विया","Hollyhock":"गुलखैरा","Larkspur":"लार्कस्पर","Stock":"स्टॉक","Baby's Breath":"बेबीज़ ब्रेथ","Strawflower / Everlasting":"स्ट्रॉफ्लावर","Statice / Sea Lavender":"स्टेटिस","Anthurium / Laceleaf":"एन्थूरियम","Bird of Paradise":"बर्ड ऑफ़ पैराडाइज़","Moth Orchid":"मॉथ ऑर्किड","Dendrobium Orchid":"डेंड्रोबियम","Poinsettia":"पॉइन्सेटिया","Crossandra / Kanakambaram":"क्रॉसेंड्रा","Mussaenda / Dhobi Tree":"मुसैंडा","Jacaranda":"जकरंडा","Silk Cotton Tree / Semal":"सेमल","Coral Tree / Indian Coral Tree":"पंगारा / मंदार","Cannonball Tree":"कैननबॉल ट्री","Rangoon Creeper / Madhumalti":"मधुमालती / रंगून क्रीपर","Kamini / Orange Jasmine":"कामिनी / मधुकामिनी","Crape Jasmine / Chandni":"चाँदनी","Night Jasmine / Rat ki Rani":"रात की रानी","Kunda / Star Jasmine":"कुन्द","Yellow Bells / Trumpet Bush":"पीली टेकोमा","Four O'Clock Flower":"चार बजे का फूल","Golden Trumpet / Allamanda":"अल्लामंडा","Yellow Oleander / Pila Kaner":"पीला कनेर","Canna / Indian Shot":"कैना / सर्वज्जय","Butterfly Ginger":"दोलन चंपा","Freshwater Mangrove / Hijjal":"हिज्जल / समुद्रफल","Ivory Tree / Dudhi":"दुधी / खिरनी","Kutaja / Indraja":"कुटज / कुरैया","Crown Flower / Arka":"आक / मदार","Holy Basil / Tulsi":"तुलसी","Kadam":"कदम","Kanak Champa / Muchakunda":"कनक चंपा","Shatavari":"शतावरी / सतमूली","Ashwagandha / Indian Ginseng":"अश्वगंधा","Arjuna":"अर्जुन","Bael / Bilva":"बेल","Sandalwood / Chandan":"चंदन","Red Sandalwood / Rakta Chandan":"लाल चंदन","Moringa / Drumstick Tree / Sahijan":"सहजन / मुनगा","Safflower / Kusum":"कुसुम / सैफ़्लॉवर","Agati / Vegetable Hummingbird Tree":"अगस्त / बसना","Water Hyacinth":"जल कुम्भी","Water Snowflake":"जल कुमुदिनी","Himalayan Blue Poppy":"नीली पोस्त","Himalayan Magnolia":"हिमालयी चंपा","Khejri / Shami":"खेजड़ी / जांड","Gunja / Rosary Pea":"घुंगची / रत्ती","Silver Trumpet Tree":"टैबेबुइया","Pentas / Egyptian Star Cluster":"पेंटास","Rain Lily":"रेन लिली","Morning Glory":"मॉर्निंग ग्लोरी","Gazania / Treasure Flower":"गज़ानिया","Bottlebrush":"बॉटलब्रश","Lavender":"लैवेंडर","Bearded Iris":"आइरिस","Hyacinth":"हायसिंथ","Freesia":"फ्रीशिया","Ranunculus / Persian Buttercup":"रैननकुलस","Corn Poppy / Flanders Poppy":"पॉपी","Daisy":"डेज़ी","Cornflower / Bachelor's Button":"कॉर्नफ्लावर","Gardenia / Cape Jasmine":"गार्डेनिया","Camellia":"कैमेलिया","Southern Magnolia":"मैग्नोलिया","Peony":"पीओनी","Begonia":"बिगोनिया","Impatiens / Busy Lizzie":"इम्पेशंस","Verbena":"वर्बेना","Globe Amaranth / Bachelor's Button":"गोम्फ्रेना","Cockscomb / Celosia":"मोरशिखा","Ageratum / Floss Flower":"एजेरेटम","Lantana":"लैंटाना","French Marigold":"गेंदा","Spider Flower":"क्लियोम","Neem / Margosa":"नीम","Karanj / Indian Beech":"करंज","Shirish / Siris Tree":"सिरिस / शिरीष","Malabar Nut / Vasa":"अडूसा","Kantakari / Yellow-Berried Nightshade":"कटेली / भटकटैया","Apamarga / Prickly Chaff Flower":"चिरचिरा / लटजीरा","Punarnava / Spreading Hogweed":"पुनर्नवा / साँथ","Rakta Kanchan / Purple Orchid Tree":"कचनार / देव कचनार","Juhi / Needle-Flowered Jasmine":"जूही","Barleria / Porcupine Flower":"कटसरैया / वज्रदंती"});
+Object.assign(I18N.mr, {"Sacred Lotus":"कमळ","Blue Water Lily":"निळा कमळ","Hibiscus":"जास्वंद","Arabian Jasmine":"मोगरा","Common Jasmine":"चमेली","Damask Rose":"गुलाब","African Marigold":"झेंडू","Dhataki / Dhaiphul":"धायटी","Nagkesar / Ironwood":"नागचंपा","Ashoka":"अशोक","Butterfly Pea / Shankhapushpi":"शंखपुष्पी","Parijat / Night-Flowering Jasmine":"पारिजात","Bakul / Bulletwood":"बकुळ","Pomegranate":"डाळिंब","Palash / Flame of the Forest":"पळस","Golden Shower / Amaltas":"बहावा","Champak / Golden Champa":"सोनचाफा","Frangipani / Temple Flower":"खैरचंपा","Oleander / Kaner":"कण्हेर","Madagascar Periwinkle / Sadabahar":"सदाफुली","Peacock Flower / Pride of Barbados":"शंकासुर","Gulmohar / Royal Poinciana":"गुलमोहर","Kachnar / Orchid Tree":"कांचन","Rohida / Desert Teak":"रोहिडा","Jungle Geranium / Flame of the Woods":"पेंडुला","Bougainvillea":"बोगनवेल","Saffron Crocus":"कुंकू","Sunflower":"सूर्यफूल","Glory Lily / Flame Lily":"कळलावी","Hindu Datura / Devil's Trumpet":"धोतरा","Chrysanthemum":"शेवंती","Dahlia":"डहाळिया","Carnation":"कार्नेशन","Madonna Lily":"लिली","Tulip":"ट्यूलिप","Narcissus / Nargis":"नरगिस","Tuberose / Rajnigandha":"निशिगंध","Gladiolus":"ग्लेडिओलस","Gerbera / Transvaal Daisy":"जरबेरा","Zinnia":"झिनिया","Cosmos":"कॉसमॉस","Petunia":"पिटुनिया","Pansy":"पॅन्सी","Snapdragon":"स्नॅपड्रॅगन","Nasturtium":"नास्टर्शियम","Sweet Pea":"स्वीट पी","Geranium / Pelargonium":"जेरेनियम","Scarlet Sage / Salvia":"साल्व्हिया","Hollyhock":"गुलखैरा","Larkspur":"लार्कस्पर","Stock":"स्टॉक","Baby's Breath":"बेबीज ब्रेथ","Strawflower / Everlasting":"स्ट्रॉफ्लावर","Statice / Sea Lavender":"स्टेटिस","Anthurium / Laceleaf":"अँथुरियम","Bird of Paradise":"बर्ड ऑफ पॅराडाइज","Moth Orchid":"मॉथ ऑर्किड","Dendrobium Orchid":"डेंड्रोबियम","Poinsettia":"पॉइन्सेटिया","Crossandra / Kanakambaram":"अबोली","Mussaenda / Dhobi Tree":"मुसेंडा","Jacaranda":"जकरांडा","Silk Cotton Tree / Semal":"सांवर","Coral Tree / Indian Coral Tree":"पांगारा","Cannonball Tree":"कॅननबॉल ट्री","Rangoon Creeper / Madhumalti":"मधुमालती","Kamini / Orange Jasmine":"कामिनी","Crape Jasmine / Chandni":"चांदणी","Night Jasmine / Rat ki Rani":"रातराणी","Kunda / Star Jasmine":"कुंद","Yellow Bells / Trumpet Bush":"पिवळी घंटा","Four O'Clock Flower":"चार वाजता फूल","Golden Trumpet / Allamanda":"अल्लामांडा","Yellow Oleander / Pila Kaner":"पिवळा कण्हेर","Canna / Indian Shot":"कॅना","Butterfly Ginger":"सुगंधी चंपा","Freshwater Mangrove / Hijjal":"हिज्जल","Ivory Tree / Dudhi":"काळा कुडा","Kutaja / Indraja":"पांढरा कुडा","Crown Flower / Arka":"रुई / अर्क","Holy Basil / Tulsi":"तुळस","Kadam":"कदंब","Kanak Champa / Muchakunda":"कनक चंपा","Shatavari":"शतावरी","Ashwagandha / Indian Ginseng":"आसंध / अश्वगंधा","Arjuna":"अर्जुन","Bael / Bilva":"बेल","Sandalwood / Chandan":"चंदन","Red Sandalwood / Rakta Chandan":"लाल चंदन","Moringa / Drumstick Tree / Sahijan":"शेवगा","Safflower / Kusum":"करडई","Agati / Vegetable Hummingbird Tree":"हदगा","Water Hyacinth":"जलतुरा","Water Snowflake":"कुमुदिनी","Khejri / Shami":"शेमरी","Gunja / Rosary Pea":"गुंज","Silver Trumpet Tree":"टॅबेबुइया","Pentas / Egyptian Star Cluster":"पेंटास","Rain Lily":"रेन लिली","Morning Glory":"मॉर्निंग ग्लोरी","Gazania / Treasure Flower":"गझानिया","Bottlebrush":"बॉटलब्रश","Lavender":"लॅव्हेंडर","Bearded Iris":"आयरिस","Hyacinth":"हायसिंथ","Freesia":"फ्रेशिया","Ranunculus / Persian Buttercup":"रॅनंक्युलस","Corn Poppy / Flanders Poppy":"पॉपी","Daisy":"डेझी","Cornflower / Bachelor's Button":"कॉर्नफ्लॉवर","Gardenia / Cape Jasmine":"गार्डेनिया","Camellia":"कॅमेलिया","Southern Magnolia":"मॅग्नोलिया","Peony":"पिओनी","Begonia":"बिगोनिया","Impatiens / Busy Lizzie":"इम्पेशन्स","Verbena":"व्हर्बेना","Globe Amaranth / Bachelor's Button":"गोम्फ्रेना","Cockscomb / Celosia":"मोरशिखा","Ageratum / Floss Flower":"अ‍ॅजेरेटम","Lantana":"लँटाना","French Marigold":"झेंडू","Spider Flower":"क्लिओम","Neem / Margosa":"कडुनिंब","Karanj / Indian Beech":"करंज","Shirish / Siris Tree":"शिरीष","Malabar Nut / Vasa":"अडुळसा","Kantakari / Yellow-Berried Nightshade":"कंटकारी","Apamarga / Prickly Chaff Flower":"आघाडा","Punarnava / Spreading Hogweed":"घेटुळी","Rakta Kanchan / Purple Orchid Tree":"कांचन","Juhi / Needle-Flowered Jasmine":"जुई","Barleria / Porcupine Flower":"पिवळी कोरांटी"});
+/* Sanskrit (classical) names, shown in both. */
+Object.assign(I18N.hi, {"Sacred Lotus":"कमल / पद्म","Blue Water Lily":"कुमुद / उत्पल","Hibiscus":"जपा","Arabian Jasmine":"मल्लिका","Common Jasmine":"जाती","Dhataki / Dhaiphul":"धातकी","Nagkesar / Ironwood":"नागकेशर","Ashoka":"अशोक","Butterfly Pea / Shankhapushpi":"अपराजिता / शंखपुष्पी","Parijat / Night-Flowering Jasmine":"पारिजात","Bakul / Bulletwood":"बकुल","Pomegranate":"दाडिम","Palash / Flame of the Forest":"पलाश / किंशुक","Golden Shower / Amaltas":"आरग्वध","Champak / Golden Champa":"चम्पक","Oleander / Kaner":"करवीर","Madagascar Periwinkle / Sadabahar":"सदापुष्पी","Kachnar / Orchid Tree":"काञ्चनार","Rohida / Desert Teak":"रोहितक","Saffron Crocus":"कुङ्कुम / केसर","Sunflower":"सूर्यमुखी","Glory Lily / Flame Lily":"लाङ्गली","Hindu Datura / Devil's Trumpet":"धत्तूर","Silk Cotton Tree / Semal":"शाल्मली","Coral Tree / Indian Coral Tree":"पारिभद्र / मन्दार","Kunda / Star Jasmine":"कुन्द","Freshwater Mangrove / Hijjal":"निचुल","Ivory Tree / Dudhi":"क्षीरि / श्वेत कुटज","Kutaja / Indraja":"कुटज","Crown Flower / Arka":"अर्क","Holy Basil / Tulsi":"सुरसा / तुलसी","Kadam":"कदम्ब","Kanak Champa / Muchakunda":"मुचकुन्द","Shatavari":"शतावरी","Ashwagandha / Indian Ginseng":"अश्वगंधा","Arjuna":"अर्जुन","Bael / Bilva":"बिल्व","Sandalwood / Chandan":"चन्दन","Red Sandalwood / Rakta Chandan":"रक्त चन्दन","Moringa / Drumstick Tree / Sahijan":"शिग्रु","Safflower / Kusum":"कुसुम्भ","Agati / Vegetable Hummingbird Tree":"अगस्त्य","Water Snowflake":"कुमुदिनी","Khejri / Shami":"शमी","Gunja / Rosary Pea":"गुञ्जा","Neem / Margosa":"निम्ब","Karanj / Indian Beech":"करञ्ज","Shirish / Siris Tree":"शिरीष","Malabar Nut / Vasa":"वासा / वासक","Kantakari / Yellow-Berried Nightshade":"कण्टकारी","Apamarga / Prickly Chaff Flower":"अपामार्ग","Punarnava / Spreading Hogweed":"पुनर्नवा","Rakta Kanchan / Purple Orchid Tree":"काञ्चनार","Juhi / Needle-Flowered Jasmine":"यूथिका","Barleria / Porcupine Flower":"कुरण्टक / वज्रदन्ती"});
+Object.assign(I18N.mr, {"Sacred Lotus":"कमल / पद्म","Blue Water Lily":"कुमुद / उत्पल","Hibiscus":"जपा","Arabian Jasmine":"मल्लिका","Common Jasmine":"जाती","Dhataki / Dhaiphul":"धातकी","Nagkesar / Ironwood":"नागकेशर","Ashoka":"अशोक","Butterfly Pea / Shankhapushpi":"अपराजिता / शंखपुष्पी","Parijat / Night-Flowering Jasmine":"पारिजात","Bakul / Bulletwood":"बकुल","Pomegranate":"दाडिम","Palash / Flame of the Forest":"पलाश / किंशुक","Golden Shower / Amaltas":"आरग्वध","Champak / Golden Champa":"चम्पक","Oleander / Kaner":"करवीर","Madagascar Periwinkle / Sadabahar":"सदापुष्पी","Kachnar / Orchid Tree":"काञ्चनार","Rohida / Desert Teak":"रोहितक","Saffron Crocus":"कुङ्कुम / केसर","Sunflower":"सूर्यमुखी","Glory Lily / Flame Lily":"लाङ्गली","Hindu Datura / Devil's Trumpet":"धत्तूर","Silk Cotton Tree / Semal":"शाल्मली","Coral Tree / Indian Coral Tree":"पारिभद्र / मन्दार","Kunda / Star Jasmine":"कुन्द","Freshwater Mangrove / Hijjal":"निचुल","Ivory Tree / Dudhi":"क्षीरि / श्वेत कुटज","Kutaja / Indraja":"कुटज","Crown Flower / Arka":"अर्क","Holy Basil / Tulsi":"सुरसा / तुलसी","Kadam":"कदम्ब","Kanak Champa / Muchakunda":"मुचकुन्द","Shatavari":"शतावरी","Ashwagandha / Indian Ginseng":"अश्वगंधा","Arjuna":"अर्जुन","Bael / Bilva":"बिल्व","Sandalwood / Chandan":"चन्दन","Red Sandalwood / Rakta Chandan":"रक्त चन्दन","Moringa / Drumstick Tree / Sahijan":"शिग्रु","Safflower / Kusum":"कुसुम्भ","Agati / Vegetable Hummingbird Tree":"अगस्त्य","Water Snowflake":"कुमुदिनी","Khejri / Shami":"शमी","Gunja / Rosary Pea":"गुञ्जा","Neem / Margosa":"निम्ब","Karanj / Indian Beech":"करञ्ज","Shirish / Siris Tree":"शिरीष","Malabar Nut / Vasa":"वासा / वासक","Kantakari / Yellow-Berried Nightshade":"कण्टकारी","Apamarga / Prickly Chaff Flower":"अपामार्ग","Punarnava / Spreading Hogweed":"पुनर्नवा","Rakta Kanchan / Purple Orchid Tree":"काञ्चनार","Juhi / Needle-Flowered Jasmine":"यूथिका","Barleria / Porcupine Flower":"कुरण्टक / वज्रदन्ती"});
+
 </script>
 <script>
 /* ============================================================
@@ -5730,6 +6665,90 @@ const state = {
   quiz:{ level:"easy", idx:0, score:0, qs:[], answered:false }
 };
 function t(k){ return (STRINGS[state.lang] && STRINGS[state.lang][k]) || STRINGS.en[k] || k; }
+
+/* ------------------------------------------------------------
+   Full-page localisation.
+   The interface is rendered in English and then translated in the
+   DOM, string by string, from the I18N dictionary. Anything not in
+   the dictionary is left in English on purpose: Latin binomials,
+   brand names, and the long species/reference prose.
+   ------------------------------------------------------------ */
+const I18N_NOTICE = {
+  hi: "अनुवाद: इंटरफ़ेस हिंदी में उपलब्ध है। प्रजातियों के विस्तृत विवरण, शोध-टिप्पणियाँ और संदर्भ अंग्रेज़ी में हैं — सटीकता बनाए रखने के लिए।",
+  mr: "भाषांतर: इंटरफेस मराठीत उपलब्ध आहे. प्रजातींचे सविस्तर वर्णन, संशोधन-नोंदी आणि संदर्भ इंग्रजीत आहेत — अचूकता टिकवण्यासाठी."
+};
+let STATIC_EN = [];   // original English text of the header/footer chrome
+
+function captureStatic(){
+  STATIC_EN = [];
+  const roots = [$("header.site"), $("footer.site")].filter(Boolean);
+  for(const root of roots){
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    let n;
+    while((n = w.nextNode())){
+      if(n.nodeValue && /[A-Za-z]/.test(n.nodeValue)) STATIC_EN.push({ node:n, en:n.nodeValue });
+    }
+  }
+}
+function restoreStatic(){ for(const r of STATIC_EN) if(r.node.isConnected) r.node.nodeValue = r.en; }
+
+/* Longest run of English words left once every known translation is removed.
+   Used to keep a paragraph either fully translated or fully English — never
+   half-and-half, which reads badly. */
+function residualEnglish(text, dict, pats){
+  let t = " " + text + " ";
+  for(const k of Object.keys(dict)){
+    if(k.length > 2 && t.indexOf(k) !== -1) t = t.split(k).join(" ");
+  }
+  for(const p of pats){
+    try{ t = t.replace(new RegExp(p[0].replace(/^\^/, "").replace(/\$$/, ""), "g"), " "); }catch(_){}
+  }
+  let run = 0, max = 0;
+  for(const tok of t.split(/\s+/)){
+    if(/^[A-Za-z][A-Za-z'’.-]*$/.test(tok)){ run++; if(run > max) max = run; } else run = 0;
+  }
+  return max;
+}
+function translateNode(node, dict, pats){
+  const raw = node.nodeValue;
+  if(!raw || !/[A-Za-z]/.test(raw)) return;
+  const key = raw.replace(/\s+/g, " ").trim();
+  if(!key) return;
+  if(Object.prototype.hasOwnProperty.call(dict, key)){ node.nodeValue = raw.replace(key, dict[key]); return; }
+  for(const pair of pats){
+    let re; try{ re = new RegExp(pair[0]); }catch(_){ continue; }
+    if(re.test(key)){ node.nodeValue = raw.replace(key, key.replace(re, pair[1])); break; }
+  }
+}
+function localizeTree(root){
+  const lang = state.lang;
+  if(!root || lang === "en") return;
+  const dict = (typeof I18N !== "undefined" && I18N[lang]) || {};
+  const pats = (typeof I18N_PATTERNS !== "undefined" && I18N_PATTERNS[lang]) || [];
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+  const nodes = [];
+  let n;
+  while((n = w.nextNode())) nodes.push(n);
+  const cache = new Map();
+  for(const node of nodes){
+    const el = node.parentElement;
+    if(!el) continue;
+    let max = cache.get(el);
+    if(max === undefined){ max = residualEnglish(el.textContent || "", dict, pats); cache.set(el, max); }
+    // 4+ consecutive untranslatable English words means this is prose we are
+    // deliberately leaving in English -- don't half-translate around it.
+    if(max >= 4) continue;
+    translateNode(node, dict, pats);
+  }
+}
+function localizePage(){
+  document.documentElement.setAttribute("lang", state.lang === "mr" ? "mr" : (state.lang === "hi" ? "hi" : "en"));
+  restoreStatic();
+  localizeTree($("#app"));
+  localizeTree($("header.site"));
+  localizeTree($("footer.site"));
+  const host = $("#toolHost"); if(host) localizeTree(host);
+}
 
 /* ---------- utils ---------- */
 function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m])); }
@@ -6772,7 +7791,7 @@ function render(opts){
   opts = opts || {};
   const r = state.route;
   let html = "";
-  switch(r.view){
+  switch(r.view){ /* views below */
     case "home": html = viewHome(); break;
     case "explore": html = viewExplore(); break;
     case "featured": html = viewFeatured(); break;
@@ -6790,8 +7809,10 @@ function render(opts){
     case "disclaimer": html = viewDisclaimer(); break;
     default: html = viewHome();
   }
+  if(state.lang !== "en") html = `<div class="i18n-note">${esc(I18N_NOTICE[state.lang] || "")}</div>` + html;
   $("#app").innerHTML = html;
   renderChrome();
+  localizePage();
   if(!opts.keepScroll){ try{ window.scrollTo(0,0); }catch(_){} }
 }
 
@@ -6854,6 +7875,7 @@ function renderTool(tool){
   else if(tool==="quiz"){ state.quiz.qs = buildQuiz(state.quiz.level); state.quiz.idx=0; state.quiz.score=0; host.innerHTML = renderQuiz(); }
   else if(tool==="collection") host.innerHTML = renderCollection();
   else if(tool==="images") host.innerHTML = renderImageManager();
+  localizeTree(host);
   try{ host.scrollIntoView({behavior:"smooth", block:"start"}); }catch(_){}
 }
 function answerQuiz(choice){
@@ -7081,6 +8103,7 @@ document.addEventListener("click", (e)=>{
 document.addEventListener("DOMContentLoaded", ()=>{
   document.documentElement.setAttribute("data-theme", state.theme);
   applyImages();
+  captureStatic();
   parseHash();
   render();
   if(!location.hash) location.hash = "#/home";

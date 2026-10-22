@@ -91,8 +91,8 @@ side by side (19 attributes); a quiz with easy/medium/hard levels; a personal
 collection with private notes and CSV export; and an **Image Manager** that lets you
 attach real photographs to any species (see §5).
 
-**Multilingual UI** — English / हिन्दी / मराठी interface chrome, a theme switcher, a
-language selector and a favourites counter in the navigation.
+**Multilingual UI** — the language switcher localises the **whole interface**, not just the
+navigation (see §2a). English / हिन्दी / मराठी, plus a theme switcher and favourites counter.
 
 ### What the 139 species cover
 
@@ -123,6 +123,48 @@ To serve it locally (optional):
 python3 -m http.server 8000
 # then open http://localhost:8000/pushpa-veda.html
 ```
+
+---
+
+## 2a. Interface translation — Hindi and Marathi
+
+The language switcher (English / हिन्दी / मराठी) localises the **whole interface**, not just
+the navigation. This was previously a real gap: only the nav translated and the rest of every
+page stayed English.
+
+**How it works.** The interface is rendered in English and then translated in the DOM from a
+dictionary of **511 Hindi and 511 Marathi entries**, plus **17 pattern rules** for strings with a
+variable part (counts, dates, photo credits, "Family: …"). Species names are taken from the
+dataset's own Hindi / Marathi / Sanskrit name fields, so a flower appears as **कमल / पद्म**
+rather than "Sacred Lotus". Category, colour, season and region names are translated as well.
+
+**What is deliberately left in English:**
+
+- **Latin binomials and family names** — *Nelumbo nucifera*, *Nelumbonaceae*. Scientific names;
+  translating them would be wrong.
+- **Detailed species prose** — the identification, botany, Ayurveda, research, safety and
+  culture sections of every profile, and the in-depth reference text. That is a large body of
+  technical botanical and Ayurvedic writing; machine-translating it would introduce errors
+  precisely where accuracy matters most. It stays English for now, and the site says so on
+  every page.
+- **Brand names with no Devanagari form** — Unsplash, Pexels, Flickr and similar.
+
+**Two design decisions worth knowing:**
+
+1. **Paragraphs are translated whole or not at all.** A paragraph is translated only when every
+   word of it is in the dictionary; otherwise the entire paragraph stays English. This avoids
+   the half-translated sentences that read badly — a mixed paragraph is worse than an English
+   one.
+2. **A visible notice** appears at the top of each page in Hindi and Marathi, stating plainly
+   what is translated and what remains in English.
+
+**Typography.** Devanagari has no true italic, so the synthesised oblique looked wrong and
+shifted the baseline. Hindi and Marathi views now switch to **Noto Sans Devanagari** and turn
+off italics, with heading sizes tuned for the script.
+
+**Extending it** is one line per string: add an entry to the `I18N` object in the data section
+of `pushpa-veda.html` (or to the generator's dictionary in the source). Translating the
+remaining prose is a separate editorial job — the mechanism is already in place.
 
 ---
 
